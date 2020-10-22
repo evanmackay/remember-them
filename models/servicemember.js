@@ -1,7 +1,3 @@
-var Sequelize = require("sequelize");
-
-var sequelize = require("../config/config.json")
-
 module.exports = function(sequelize, DataTypes) {
     var ServiceMember = sequelize.define("ServiceMember", {
         name: { type: DataTypes.STRING, allowNull: false, validate: {len: [1, 50] } },
