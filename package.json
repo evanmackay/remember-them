@@ -1,26 +1,19 @@
 {
-  "name": "remember-them",
+  "name": "validations",
   "version": "1.0.0",
-  "description": "Application to display information about soldiers who have died in combat",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "watch": "nodemon server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/evanmackay/remember-them.git"
-  },
-  "author": "Evan Mackay, Layne Hansen, Jon Jesse AJ Clemens",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/evanmackay/remember-them/issues"
-  },
-  "homepage": "https://github.com/evanmackay/remember-them#readme",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "mysql": "^2.18.1",
-    "mysql2": "^2.2.5",
-    "sequelize": "^6.3.5"
+    "express": "^4.16.3",
+    "mysql2": "^1.6.4",
+    "sequelize": "^4.41.2"
   }
 }
