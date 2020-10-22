@@ -1,18 +1,16 @@
 var db = require("../models");
-
-var express = require("express")
-
-var app = express()
+var express = require("express");
+var router = express.Router();
 
 
-module.exports = function(app) {
-    app.get("/api/servicemembers", function(req, res) {
+// module.exports = function(app) {
+    router.get("/", function(req, res) {
         db.ServiceMember.findAll({}).then(function(dbServiceMember) {
             res.json(dbServiceMember)
         });
     });
 
-    app.post("/api/servicemembers", function(req, res) {
+    router.post("/", function(req, res) {
         db.ServiceMember.create({
             name: req.body.name,
             age: req.body.age,
@@ -27,7 +25,7 @@ module.exports = function(app) {
         });
     });
 
-    app.delete("/api/servicemembers/:id", function(req, res) {
+    router.delete("/:id", function(req, res) {
         db.ServiceMember.destroy({
             where: {
                 id: req.params.id
@@ -38,7 +36,7 @@ module.exports = function(app) {
             });
     });
 
-    app.put("/api/servicemembers", function(req, res) {
+    router.put("/", function(req, res) {
         db.ServiceMember.update({
             name: req.body.name,
             age: req.body.age,
@@ -57,4 +55,6 @@ module.exports = function(app) {
             });
     });
 
-};
+// };
+
+module.exports = router
