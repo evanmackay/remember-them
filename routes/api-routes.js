@@ -3,13 +3,13 @@ var express = require("express");
 var router = express.Router();
 
 
-// module.exports = function(app) {
+// pull info from the database and display
     router.get("/", function(req, res) {
         db.ServiceMember.findAll({}).then(function(dbServiceMember) {
             res.json(dbServiceMember)
         });
     });
-
+// posting new info added by user to database
     router.post("/", function(req, res) {
         db.ServiceMember.create({
             name: req.body.name,
@@ -24,7 +24,7 @@ var router = express.Router();
             res.json(dbServiceMember)
         });
     });
-
+// allows user to delete info if they choose
     router.delete("/:id", function(req, res) {
         db.ServiceMember.destroy({
             where: {
@@ -35,7 +35,7 @@ var router = express.Router();
                 res.json(dbServiceMember)
             });
     });
-
+// allows user to update info
     router.put("/", function(req, res) {
         db.ServiceMember.update({
             name: req.body.name,
@@ -55,6 +55,6 @@ var router = express.Router();
             });
     });
 
-// };
+
 
 module.exports = router
