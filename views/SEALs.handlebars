@@ -1,0 +1,31 @@
+<h1>The Fallen</h1>
+
+{{! View all of the SEALs that currently exist in the database }}
+<div class="container">
+{{#each servicemembers}}
+<div class="card">
+    <div class="card-img">
+        <img src="" alt="">
+    </div>
+    <span class="card-title">{{this.name}} - {{this.age}}</span>
+    <div class="card-content">
+        <p>{{this.date_of_birth}} - {{this.date_of_death}}</p>
+        <p>Unit: {{this.unit}}</p>
+        <p>Awards and Recognitions: {{this.awards}}</p>
+        <p>Summary of Service: {{this.summary_of_service}}</p>
+    </div>
+</div>
+{{/each}}
+</div>
+
+<footer>
+    <ul>
+        <li><a href='/'>Fallen SEALs</a></li>
+        <li>Quotes</li>
+        <li>Links</li>
+        <li>Videos</li>
+        <li><a href='/creed'>SEAL Creed</a></li>
+    </ul>
+
+    <blockquote>"To us, and those like us, damn few."</blockquote>
+</footer>
