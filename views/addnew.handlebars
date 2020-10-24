@@ -1,19 +1,74 @@
 <h1>Tell a new SEALs' story here</h1>
 
-{{! Form for submitting a new SEAL with all of the appropriate fields }}
-<form id="newmember" class="button-size">
-  <textarea type="text" name="seal" cols="1" rows="7"></textarea>
-  <button type="submit">Submit</button>
+{{! Form for submitting a new SEAL with all of the fields sepcified in models }}
+<form>
+  <div class="grid-container">
+    <div class="grid-y grid-padding-y">
+      <!-- First -->
+      <div class="medium-6 cell">
+        <label>First Name
+          <input type="text" placeholder=".medium-6.cell">
+        </label>
+      </div>
+      <!-- Last -->
+      <div class="medium-6 cell">
+        <label>Last Name
+          <input type="text" placeholder=".medium-6.cell">
+        </label>
+      </div>
+      <!-- Age -->
+      <div class="medium-6 cell">
+        <label>
+          How old is this individual?
+          <input type="number" value="110">
+        </label>
+      </div>
+      <!-- DOB -->
+      <div class="medium-6 cell">
+        <label>Date of birth
+          <input type="text" placeholder=".medium-6.cell">
+        </label>
+      </div>
+      <!-- DOD -->
+      <div class="medium-6 cell">
+        <label>Date of death
+          <input type="text" placeholder=".medium-6.cell">
+        </label>
+      </div>
+      <!-- Unit -->
+      <div class="medium-6 cell">
+        <label>Unit
+          <input type="text" placeholder=".medium-6.cell">
+        </label>
+      </div>
+      <!-- Awards -->
+      <div class="medium-6 cell">
+        <label>Awards
+          <input type="text" placeholder=".medium-6.cell">
+        </label>
+      </div>
+      <!-- Summary of Service -->
+      <div class="medium-6 cell">
+        <label>Summary of service
+          <input type="text" placeholder=".medium-6.cell">
+        </label>
+      </div>
+    </div>
+  </div>
+  <a class="button success" href="/api/servicemembers">So Basic</a>
 </form>
 
+
 <footer>
-    <ul>
-        <li><a href='/'>Fallen SEALs</a></li>
-        <li>Quotes</li>
-        <li>Links</li>
-        <li>Videos</li>
-        <li>SEAL Creed</li>
-    </ul>
+    <div class="flex-dir-row align-spaced">
+        <ul>
+            <li><a href='/'>Fallen SEALs</a></li>
+            <li>Quotes</li>
+            <li>Links</li>
+            <li>Videos</li>
+            <li><a href="/creed">SEAL Creed</a></li>
+        </ul>
+    </div>
 
     <blockquote>"To us, and those like us, damn few."</blockquote>
 </footer>
