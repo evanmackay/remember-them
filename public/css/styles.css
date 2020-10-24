@@ -1,0 +1,15 @@
+body {
+    background-image: linear-gradient(red,white,blue);
+    text-align: center;
+}
+
+.aside-list {
+    list-style-type: none;
+}
+.footer-list {
+    list-style-type: none;
+    display: inline-flex;
+}
+.list-item {
+    padding-right: .5rem;
+}
