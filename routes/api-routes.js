@@ -6,7 +6,10 @@ var router = express.Router();
 // pull info from the database and display
     router.get("/", function(req, res) {
         db.ServiceMember.findAll({}).then(function(dbServiceMember) {
-            res.json(dbServiceMember)
+            // res.json(dbServiceMember)
+
+             res.render("index");
+            
         });
     });
 // posting new info added by user to database
