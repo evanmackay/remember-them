@@ -12,7 +12,8 @@ var router = express.Router();
 // posting new info added by user to database
     router.post("/", function(req, res) {
         db.ServiceMember.create({
-            name: req.body.name,
+            first_name = req.body.first_name,
+            last_name = req.body.last_name,
             age: req.body.age,
             date_of_birth: req.body.date_of_birth,
             unit: req.body.unit,
@@ -38,7 +39,8 @@ var router = express.Router();
 // allows user to update info
     router.put("/", function(req, res) {
         db.ServiceMember.update({
-            name: req.body.name,
+            first_name: req.body.name,
+            last_name: req.body.name,
             age: req.body.age,
             date_of_birth: req.body.date_of_birth,
             unit: req.body.unit,
