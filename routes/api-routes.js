@@ -40,6 +40,7 @@ var router = express.Router();
 // allows user to update info
     router.put("/", function(req, res) {
         db.ServiceMember.update({
+            image: req.body.image,
             first_name: req.body.name,
             last_name: req.body.name,
             age: req.body.age,
