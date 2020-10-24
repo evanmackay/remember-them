@@ -20,6 +20,7 @@ var router = express.Router();
             unit: req.body.unit,
             date_of_death: req.body.date_of_death,
             awards: req.body.awards,
+            biography: req.body.biography,
             summary_of_service: req.body.summary_of_service
 
         }).then(function(dbServiceMember) {
@@ -48,6 +49,7 @@ var router = express.Router();
             unit: req.body.unit,
             date_of_death: req.body.date_of_death,
             awards: req.body.awards,
+            biography: req.body.biography,
             summary_of_service: req.body.summary_of_service
         }, {
             where: {
