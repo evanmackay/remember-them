@@ -45,7 +45,10 @@ h1 {
 
 /* Creed styles section
 ======================= */
-
+.creed {
+    text-align: center;
+    font-size: 1.25rem;
+}
 
 /* About styles section
 ======================= */
