@@ -23,9 +23,19 @@ html, body {
   padding-top: 15px;
 }
 
-h3 {
+.menu {
   color: white;
 }
+
+#sanity {
+  border: solid 1px white;
+}
+
+#sanity2 {
+  color: white;
+}
+
+/* navbar controls */
 
 .subnav-hero-section {
     text-align: center;
@@ -89,9 +99,14 @@ body {
     text-align: center;
 }
 
-.aside-list {
-    list-style-type: none;
+#aside {
+    border: solid 1px blue;
     color: white;
+}
+
+.aside-list {
+    color: white;
+    list-style-type: none;
 }
 
 .footer-list {
@@ -104,11 +119,11 @@ body {
 }
 
 #menu-bar {
+    align-items: center;
     align-content: flex;
     text-align: center;
     border-top: #807a2b solid 2px;
     border-bottom: #807a2b solid 2px;
-    align-items: center;
 }
 
 .menu-hover-lines {
@@ -169,6 +184,7 @@ body {
 
   #quote {
       color: white;
+      font-style: italic;
   }
   
   
