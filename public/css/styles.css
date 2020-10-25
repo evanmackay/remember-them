@@ -1,13 +1,5 @@
 /* Global styles section
 ======================= */
-/* body {
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR37p6rhBUE1l2221ujA1IpdLk9pSb0FACHeQ&usqp=CAU) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-} */
-
 #bg {
     position: fixed;
     top: 0;
@@ -52,4 +44,3 @@ h1 {
 
 /* About styles section
 ======================= */
-

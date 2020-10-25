@@ -27,6 +27,7 @@ const router = express.Router();
         })
         .catch((err) => {
             console.log(err);
+
         });
     });
 // posting new info added by user to database
