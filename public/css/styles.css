@@ -1,46 +1,15 @@
-/* Global styles section
-======================= */
-#bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -1;
-}
-
-h1 {
+body {
+    background-image: linear-gradient(red,white,blue);
     text-align: center;
 }
 
-.txt {
-    color: white;
+.aside-list {
+    list-style-type: none;
 }
-
-.foot-quote {
-    text-align: center;
+.footer-list {
+    list-style-type: none;
+    display: inline-flex;
 }
-
-/* Index styles section
-======================= */
-
-
-/* SEALs styles section
-======================= */
-
-
-/* Add New styles section
-======================= */
-.grid-container {
-    width: 80%;
+.list-item {
+    padding-right: .5rem;
 }
-
-/* Creed styles section
-======================= */
-.creed {
-    text-align: center;
-    font-size: 1.25rem;
-}
-
-/* About styles section
-======================= */
