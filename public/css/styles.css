@@ -210,30 +210,26 @@ h1 {
 }
 
 .foot-quote {
+
+body {
+    background-image: linear-gradient(red,white,blue);
+
     text-align: center;
 }
 
-/* Index styles section
-======================= */
-
-
-/* SEALs styles section
-======================= */
-
-
-/* Add New styles section
-======================= */
-.grid-container {
-    width: 80%;
+.aside-list {
+    list-style-type: none;
 }
+.footer-list {
+    list-style-type: none;
+    display: inline-flex;
 
-/* Creed styles section
-======================= */
-.creed {
-    text-align: center;
-    font-size: 1.25rem;
-}
 
 /* About styles section
 ======================= */
+
+=======
+.list-item {
+    padding-right: .5rem;
+}
 
