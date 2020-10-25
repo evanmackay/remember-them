@@ -8,6 +8,10 @@ html, body {
     width: 100%;
 }
 
+.container {
+  align-items: center;
+}
+
 .title {
     color: white;
     font-family: 'Cinzel', serif;
@@ -17,6 +21,10 @@ html, body {
   height: 150px;
   width: 289px;
   padding-top: 15px;
+}
+
+h3 {
+  color: white;
 }
 
 .subnav-hero-section {

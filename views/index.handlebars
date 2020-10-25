@@ -1,21 +1,32 @@
 <div class="wrapper">
 
-    <header class="subnav-hero-section">
-        <h1 class="title">Remember Them<img src="/css/trident.png" alt="Navy SEAL Trident" height="100" width="202"></h1>
-    </header>
+    <div class="container">
+        <header class="subnav-hero-section">
+            <h1 class="title">Remember Them<img src="/css/trident.png" alt="Navy SEAL Trident" height="100" width="202">
+            </h1>
+        </header>
+    </div>
 
     {{! Home page with navigation links to other areas of the website }}
 
-    <div class="row">
-        <aside>
-            <div class="flex-container flex-dir-column">
-                <ul class="aside-list">
-                    <li><a href="/api/servicemembers">Add a hero</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="">Contact us</a></li>
-                </ul>
+    <div class="grid-x">
+        <div class="cell small-3">
+            <aside>
+                <div class="flex-container flex-dir-column">
+                    <ul class="aside-list">
+                        <li><a href="/api/servicemembers">Add a hero</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="">Contact us</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+        <div class="cell small-9">
+            <div>
+                <h3>I'm Here</h3>
             </div>
-        </aside>
+
+        </div>
     </div>
 
     <footer>
