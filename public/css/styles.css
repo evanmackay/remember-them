@@ -1,0 +1,52 @@
+/* Global styles section
+======================= */
+/* body {
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR37p6rhBUE1l2221ujA1IpdLk9pSb0FACHeQ&usqp=CAU) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+} */
+
+#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+h1 {
+    text-align: center;
+}
+
+.txt {
+    color: white;
+}
+
+.foot-quote {
+    text-align: center;
+}
+
+/* Index styles section
+======================= */
+
+
+/* SEALs styles section
+======================= */
+
+
+/* Add New styles section
+======================= */
+.grid-container {
+    width: 80%;
+}
+
+/* Creed styles section
+======================= */
+
+
+/* About styles section
+======================= */
+
