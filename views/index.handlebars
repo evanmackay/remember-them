@@ -1,5 +1,6 @@
 <div class="wrapper">
 
+
     <div class="container">
         <header class="subnav-hero-section">
             <h1 class="title">Remember Them<img src="/css/trident.png" alt="Navy SEAL Trident" height="100" width="202">
@@ -48,3 +49,71 @@
     </footer>
 
 </div>
+
+
+{{! Image carousel }}
+<div class="orbit" role="region" aria-label="Navy SEAL pictures" data-orbit>
+  <div class="orbit-wrapper">
+    <div class="orbit-controls">
+      <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+      <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+    </div>
+    <ul class="orbit-container">
+      <li class="is-active orbit-slide">
+        <figure class="orbit-figure">
+          <img class="orbit-image" src="https://placehold.it/1200x600/999?text=Slide-1" alt="Space">
+          <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
+        </figure>
+      </li>
+      <li class="orbit-slide">
+        <figure class="orbit-figure">
+          <img class="orbit-image" src="https://placehold.it/1200x600/888?text=Slide-2" alt="Space">
+          <figcaption class="orbit-caption">Lets Rocket!</figcaption>
+        </figure>
+      </li>
+      <li class="orbit-slide">
+        <figure class="orbit-figure">
+          <img class="orbit-image" src="https://placehold.it/1200x600/777?text=Slide-3" alt="Space">
+          <figcaption class="orbit-caption">Encapsulating</figcaption>
+        </figure>
+      </li>
+      <li class="orbit-slide">
+        <figure class="orbit-figure">
+          <img class="orbit-image" src="https://placehold.it/1200x600/666&text=Slide-4" alt="Space">
+          <figcaption class="orbit-caption">Outta This World</figcaption>
+        </figure>
+      </li>
+    </ul>
+  </div>
+  <nav class="orbit-bullets">
+    <button class="is-active" data-slide="0">
+      <span class="show-for-sr">First slide details.</span>
+      <span class="show-for-sr" data-slide-active-label>Current Slide</span>
+    </button>
+    <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+    <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
+    <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
+  </nav>
+</div>
+
+{{! Aside with links to other areas of the page }}
+<aside>
+    <ul>
+        <li><a class="cell medium-3" href='/SEALs'>Fallen SEALs</a></li>
+        <li><a href="/add">Add a hero</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact us</a></li>
+    </ul>
+</aside>
+
+{{! Footer with additional links }}
+<footer>
+      <div class="grid-x grid-padding-x">
+        <a class="cell medium-3" href=''>Quotes</a>
+        <a class="cell medium-3" href=''>Other resources</a>
+        <a class="cell medium-3" href="/creed">SEAL Creed</a>
+      </div>
+
+      <blockquote class="foot-quote">"To us, and those like us, damn few."</blockquote>
+</footer>
+
