@@ -1,10 +1,18 @@
+input {
+    color: white;
+}
+
 
 html, body {
     height: 100%;
 }
 
+
+
 .wrapper {
     background-color: black;
+    font-family: Cinzel;
+    color: white;
     height: 100%;
     width: 100%;
 }
@@ -22,6 +30,10 @@ html, body {
   height: 150px;
   width: 289px;
   padding-top: 15px;
+}
+
+.medium-6 {
+    color: rgb(129, 129, 129);
 }
 
 .menu {
@@ -257,5 +269,6 @@ body {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
+
 
 
