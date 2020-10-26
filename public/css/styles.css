@@ -93,12 +93,6 @@ html, body {
   .subnav-hero-subnav li a:hover {
     background: rgba(254, 254, 254, 0.15);
   }
-    
-
-body {
-    background-image: linear-gradient(red,white,blue);
-    text-align: center;
-}
 
 #aside {
     border: solid 1px blue;
@@ -209,11 +203,9 @@ h1 {
     color: white;
 }
 
-.foot-quote {
+/* .foot-quote { */
 
 body {
-    background-image: linear-gradient(red,white,blue);
-
     text-align: center;
 }
 
@@ -223,13 +215,12 @@ body {
 .footer-list {
     list-style-type: none;
     display: inline-flex;
-
+}
+.list-item {
+    padding-right: .5rem;
+}
 
 /* About styles section
 ======================= */
 
-=======
-.list-item {
-    padding-right: .5rem;
-}
 
