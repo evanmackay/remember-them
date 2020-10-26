@@ -1,16 +1,27 @@
-var db = require("../models");
-var express = require("express");
-var router = express.Router();
+const db = require("../models");
+const express = require("express");
+const router = express.Router();
 
 
 // pull info from the database and display
     router.get("/", function(req, res) {
-        db.ServiceMember.findAll({}).then(function(dbServiceMember) {
-            // res.json(dbServiceMember)
+        res.render("index");
+    });
 
-             res.render("index");
-            
-        });
+    router.get('/SEALs', (req, res) => {
+        res.render('SEALs', ServiceMember);
+    });
+
+    router.get('/creed', (req, res) => {
+        res.render('creed');
+    });
+
+    router.get('/api/servicemembers', (req, res) => {
+        res.render('addnew');
+    });
+
+    router.get('/about', (req, res) => {
+        res.render('about');
     });
 // posting new info added by user to database
     router.post("/", function(req, res) {
