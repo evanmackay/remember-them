@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password":"W@shNat$2019",
-    "database": "servicemembers",
+    "password":"Toskiornottoski500!",
+    "database": "seals_db",
     "host": "127.0.0.1",
     "port": 3306,
     "dialect": "mysql"
