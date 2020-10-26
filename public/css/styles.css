@@ -114,9 +114,8 @@ html, body {
 }
 
 #menu-bar {
-    align-items: center;
-    align-content: flex;
-    text-align: center;
+    display: flex;
+    justify-content: center;
     border-top: #807a2b solid 2px;
     border-bottom: #807a2b solid 2px;
 }
