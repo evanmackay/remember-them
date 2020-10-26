@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password":"Bastille7624ac4!!!",
+    "password":"password",
     "database": "servicemembers",
     "host": "127.0.0.1",
     "port": 3306,
@@ -16,6 +16,7 @@
     "dialect": "mysql"
   },
   "production": {
+    "use_env_variable": "JAWSDB_URL",
     "username": "root",
     "password":"password",
     "database": "database_production",
