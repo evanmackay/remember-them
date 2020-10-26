@@ -16,7 +16,7 @@ const router = express.Router();
         res.render('creed');
     });
 
-    router.get('/add', (req, res) => {
+    router.get('/api/servicemembers', (req, res) => {
         res.render('addnew');
     });
 
