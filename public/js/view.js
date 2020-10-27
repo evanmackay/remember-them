@@ -1,4 +1,4 @@
-
+// swiper controller
 var swiper = new Swiper('.swiper-container', {
     effect: 'coverflow',
     grabCursor: true,
@@ -15,21 +15,16 @@ var swiper = new Swiper('.swiper-container', {
       el: '.swiper-pagination',
     },
   });
-
-
-
-
-
   
 $('#create').on('submit', (event) => {
     event.preventDefault();
 
-let arr = [];
-let arr2 = [];
-let first = $('#first').val().trim();
-let last = $('#last').val().trim();
-let unit = $('#unit').val().trim();
-let awards = $('#awards').val().trim();
+    let arr = [];
+    let arr2 = [];
+    let first = $('#first').val().trim();
+    let last = $('#last').val().trim();
+    let unit = $('#unit').val().trim();
+    let awards = $('#awards').val().trim();
 let sos = $('#sos').val().trim();
 let dob = $('#dob').val().trim();
 let dod = $('#dod').val().trim();
@@ -46,17 +41,17 @@ function isEmpty(val) {
 };
 
 
-    $.ajax('/api/servicemembers/SEALs', {
-        method: 'POST',
-        data: newMember
-    })
-    .then(() => {
-        console.log('Member added');
-        location.reload();
-    })
-    .catch((err) => {
-        throw err;
-    });
+$.ajax('/api/servicemembers/SEALs', {
+    method: 'POST',
+    data: newMember
+})
+.then(() => {
+    console.log('Member added');
+    location.reload();
+})
+.catch((err) => {
+    throw err;
+});
 });
 
 function isDate(date) {
@@ -105,7 +100,7 @@ $('#create').on('submit', (event) => {
             awards: $('#awards').val().trim(),
             summary_of_service: $('#sos').val().trim()
         }
-    
+        
         $.ajax('/api/servicemembers/SEALs', {
             method: 'POST',
             data: newMember
