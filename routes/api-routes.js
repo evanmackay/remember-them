@@ -9,7 +9,10 @@ const router = express.Router();
     });
 
     router.get('/SEALs', (req, res) => {
-        res.render('SEALs', ServiceMember);
+        db.ServiceMember.findAll({}).then(function(dbServiceMember){
+            res.render('SEALs', dbServiceMember);
+
+        })
     });
 
     router.get('/creed', (req, res) => {
