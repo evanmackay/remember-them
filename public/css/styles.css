@@ -94,6 +94,8 @@ html, body {
     background: rgba(254, 254, 254, 0.15);
   }
 
+/* aside controls */
+
 #aside {
     border: solid 1px blue;
     color: white;
