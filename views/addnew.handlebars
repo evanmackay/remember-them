@@ -7,7 +7,7 @@
         </header>
     </div>
 
-  <h1>Tell a new SEALs' story here</h1>
+  <h1>Tell a New Servicemember's Story Here</h1>
 
 {{! Form for submitting a new SEAL with all of the fields sepcified in models }}
   <form class="addnew">
@@ -30,6 +30,13 @@
           <label>
             How old is this individual?
             <input type="number" value="110" id='age'>
+          </label>
+        </div>
+        {{!-- Branch of service --}}
+        <div class="medium-6 cell">
+          <label>
+            What branch of the military did this individual serve in?
+            <input type="text" placeholder="Army/Marine Corps/Navy/Airforce/Coast Guard" id='branch-of-service'>
           </label>
         </div>
         <!-- DOB -->
@@ -64,7 +71,7 @@
         </div>
       </div>
     </div>
-    <a class="button success" href="/api/servicemembers">So Basic</a>
+    <a class="button success" href="/api/servicemembers">Submit</a>
   </form>
 
   <div id="error"><span></span></div>
