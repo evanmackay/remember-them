@@ -24,7 +24,7 @@ const router = express.Router();
         res.render('about');
     });
 // posting new info added by user to database
-    router.post("/", function(req, res) {
+    router.post("/SEALs", function(req, res) {
         db.ServiceMember.create({
             image: req.body.image,
             first_name: req.body.first_name,
@@ -37,8 +37,12 @@ const router = express.Router();
             biography: req.body.biography,
             summary_of_service: req.body.summary_of_service
 
-        }).then(function(dbServiceMember) {
+        })
+        .then(function(dbServiceMember) {
             res.json(dbServiceMember)
+        })
+        .catch((err) => {
+            throw err;
         });
     });
 // allows user to delete info if they choose
