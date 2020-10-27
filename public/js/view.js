@@ -65,7 +65,7 @@ $('#create').on('submit', (event) => {
             summary_of_service: $('#sos').val().trim()
         }
     
-        $.ajax('/api/servicemembers/SEALs', {
+        $.ajax('/SEALs', {
             method: 'POST',
             data: newMember
         })
