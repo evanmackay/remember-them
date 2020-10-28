@@ -238,6 +238,13 @@ body {
     padding-right: .5rem;
 }
 
+#error {
+  color: red;
+}
+
+.creed {
+  text-align: center;
+}
 
 /* About styles section
 ======================= */
