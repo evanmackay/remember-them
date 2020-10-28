@@ -2,6 +2,7 @@
 
 <p>Waiting submissions:</p>
 
+{{! Admin access only to pending submissions }}
 {{#each servicemembers}}
 {{#unless approved}}
     <div class="card">
@@ -10,12 +11,12 @@
             <h2>{{this.dataValues.first_name}} {{this.dataValues.last_name}} - {{this.dataValues.age}}</h2>
             <p>{{this.dataValues.date_of_birth}} - {{this.dataValues.date_of_death}}</p>
             <p>{{this.dataValues.branch_of_service}}</p>
-            <p>Unit: {{this.dataValues.unit}}</p>
-            <p>Awards and Recognitions: {{this.dataValues.awards}}</p>
-            <p>Summary of Service: {{this.dataValues.summary_of_service}}</p>
+            <p><strong>Unit:</strong> {{this.dataValues.unit}}</p>
+            <p><strong>Awards and Recognitions:</strong> {{this.dataValues.awards}}</p>
+            <p><strong>Summary of Service:</strong> {{this.dataValues.summary_of_service}}</p>
 
-            <button id="approve">Approve this entry</button>
-            <button id="delete">Delete this entry</button>
+            <button id="approve" data-id="{{this.dataValues.id}}">Approve this entry</button>
+            <button id="delete" data-id="{{this.dataValues.id}}">Delete this entry</button>
         </div>
     </div>
 {{/unless}}

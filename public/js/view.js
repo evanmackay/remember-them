@@ -100,3 +100,6 @@ $('.create-form').on('submit', (event) => {
         });
     }
 });
+
+//Approve a new submission
+//Delete a new submission

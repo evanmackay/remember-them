@@ -11,7 +11,7 @@ router.get("/", function(req, res) {
 router.get('/SEALs', (req, res) => {
     db.ServiceMember.findAll({}).then((dbServiceMember) => {
         let obj = {
-            serviceMember: dbServiceMember
+            servicemembers: dbServiceMember
         }
         res.render('SEALs', obj);
     })
@@ -35,7 +35,7 @@ router.get('/about', (req, res) => {
 router.get('/admin', (req, res) => {
     db.ServiceMember.findAll({}).then((dbServiceMember) => {
         let obj = {
-            serviceMember: dbServiceMember
+            servicemembers: dbServiceMember
         }
         res.render('admin', obj);
     })
