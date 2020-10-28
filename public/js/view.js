@@ -102,4 +102,26 @@ $('.create-form').on('submit', (event) => {
 });
 
 //Approve a new submission
+$('#approve').on('click', function(event) {
+    console.log('HIT');
+    let id = $(this).data('id');
+    console.log('ID:' + id);
+
+    let status = {
+        approved: true
+    };
+
+    $.ajax('/SEALs/' + id, {
+        method: 'PUT',
+        data: status
+    })
+    .then(() => {
+        console.log('Entry approved!');
+        location.reload();
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+});
+
 //Delete a new submission

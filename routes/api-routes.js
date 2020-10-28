@@ -84,22 +84,22 @@ router.delete("/:id", function(req, res) {
 });
 
 //Admin users can update status to approved 
-router.put("/SEALs", (req, res) => {
+router.put("/SEALs/:id", (req, res) => {
     db.ServiceMember.update({
-        image: req.body.image,
-        first_name: req.body.name,
-        last_name: req.body.name,
-        age: req.body.age,
-        branch_of_service: req.body.branch_of_service,
-        date_of_birth: req.body.date_of_birth,
-        unit: req.body.unit,
-        date_of_death: req.body.date_of_death,
-        awards: req.body.awards,
-        summary_of_service: req.body.summary_of_service,
+        // image: req.body.image,
+        // first_name: req.body.name,
+        // last_name: req.body.name,
+        // age: req.body.age,
+        // branch_of_service: req.body.branch_of_service,
+        // date_of_birth: req.body.date_of_birth,
+        // unit: req.body.unit,
+        // date_of_death: req.body.date_of_death,
+        // awards: req.body.awards,
+        // summary_of_service: req.body.summary_of_service,
         approved: req.body.approved
     }, {
         where: {
-            id: req.body.id
+            id: req.params.id
         }
     })
     .then((dbServiceMember) => {
