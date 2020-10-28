@@ -1,4 +1,3 @@
-// swiper controller
 var swiper = new Swiper('.swiper-container', {
     effect: 'coverflow',
     grabCursor: true,
@@ -15,6 +14,12 @@ var swiper = new Swiper('.swiper-container', {
       el: '.swiper-pagination',
     },
   });
+
+
+
+
+
+
   
 $('#create').on('submit', (event) => {
     event.preventDefault();
