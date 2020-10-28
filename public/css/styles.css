@@ -1,20 +1,21 @@
-input {
+label {
     color: white;
 }
 
 
 html, body {
-    height: 100%;
+background-color: black;
+color: white;
 }
 
 
 
 .wrapper {
+    text-align: center;
     background-color: black;
     font-family: Cinzel;
     color: white;
-    height: 100%;
-    width: 100%;
+
 }
 
 .container {
@@ -237,9 +238,13 @@ body {
     padding-right: .5rem;
 }
 
+#error {
+  color: red;
+}
 
 /* About styles section
 ======================= */
+
 #about-title {
   color: goldenrod;
   font-family: 'Roboto', sans-serif;
@@ -262,7 +267,10 @@ body {
 }
 
 
-.photo {
+
+
+#photo {
+
     -webkit-animation: fadein 3.5s; /* Safari, Chrome and Opera > 13.5.1 */
        -moz-animation: fadein 3.5s; /* Firefox < 16 */
         -ms-animation: fadein 3.5s; /* Internet Explorer */
