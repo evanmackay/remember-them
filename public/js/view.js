@@ -103,7 +103,7 @@ $('.create-form').on('submit', (event) => {
 
 //Approve a new submission
 $('#approve').on('click', function(event) {
-    console.log('UPDATE');
+    console.log('UPDATE triggered');
     let id = $(this).data('id');
 
     let status = {
@@ -125,7 +125,7 @@ $('#approve').on('click', function(event) {
 
 //Delete a new submission
 $('#delete').on('click', function(event) {
-    console.log('DELETE');
+    console.log('DELETE triggered');
     let id = $(this).data('id');
 
     $.ajax('/SEALs/' + id, {

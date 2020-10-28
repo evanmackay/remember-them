@@ -9,7 +9,12 @@ router.get("/", function(req, res) {
 });
 
 router.get('/SEALs', (req, res) => {
-    db.ServiceMember.findAll({}).then((dbServiceMember) => {
+    db.ServiceMember.findAll({
+        where: {
+            approved: true
+        }
+    })
+    .then((dbServiceMember) => {
         let obj = {
             servicemembers: dbServiceMember
         }
@@ -33,7 +38,12 @@ router.get('/about', (req, res) => {
 });
 
 router.get('/admin', (req, res) => {
-    db.ServiceMember.findAll({}).then((dbServiceMember) => {
+    db.ServiceMember.findAll({
+        where: {
+            approved: false
+        }
+    })
+    .then((dbServiceMember) => {
         let obj = {
             servicemembers: dbServiceMember
         }

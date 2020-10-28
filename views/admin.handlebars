@@ -4,7 +4,6 @@
 
 {{! Admin access only to pending submissions }}
 {{#each servicemembers}}
-{{#unless approved}}
     <div class="card">
         <img src="" alt="">
         <div class="card-section">
@@ -20,5 +19,4 @@
             <button id="delete" data-id="{{this.dataValues.id}}">Delete this entry</button>
         </div>
     </div>
-{{/unless}}
 {{/each}} 
