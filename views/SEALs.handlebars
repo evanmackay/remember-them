@@ -5,17 +5,19 @@
     {{! View all of the SEALs that currently exist in the database }}
 
     {{#each servicemembers}}
+    {{#if approved}}
     <div class="card">
         <img src="" alt="">
         <div class="card-section">
-            <h2>{{this.first_name}} {{this.last_name}} - {{this.age}}</h2>
-            <p>{{this.date_of_birth}} - {{this.date_of_death}}</p>
-            <p>{{this.branch_of_service}}</p>
-            <p>Unit: {{this.unit}}</p>
-            <p>Awards and Recognitions: {{this.awards}}</p>
-            <p>Summary of Service: {{this.summary_of_service}}</p>
+            <h2>{{this.dataValues.first_name}} {{this.dataValues.last_name}} - {{this.dataValues.age}}</h2>
+            <p>{{this.dataValues.date_of_birth}} - {{this.dataValues.date_of_death}}</p>
+            <p>{{this.dataValues.branch_of_service}}</p>
+            <p>Unit: {{this.dataValues.unit}}</p>
+            <p>Awards and Recognitions: {{this.dataValues.awards}}</p>
+            <p>Summary of Service: {{this.dataValues.summary_of_service}}</p>
         </div>
     </div>
+    {{/if}}
     {{/each}}
 
 
