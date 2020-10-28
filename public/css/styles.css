@@ -240,6 +240,28 @@ body {
 
 /* About styles section
 ======================= */
+#about-title {
+  color: goldenrod;
+  font-family: 'Roboto', sans-serif;
+  padding-bottom: 10px;
+}
+
+#about-text {
+  display: flex;
+  margin: auto;
+  width: 75%;
+  padding-bottom: 15px;
+}
+
+#bq-about {
+  color: white;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  text-align: justify;
+  padding-bottom: 10px;
+}
+
+
 .photo {
     -webkit-animation: fadein 3.5s; /* Safari, Chrome and Opera > 13.5.1 */
        -moz-animation: fadein 3.5s; /* Firefox < 16 */
