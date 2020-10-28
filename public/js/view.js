@@ -1,4 +1,3 @@
-
 var swiper = new Swiper('.swiper-container', {
     effect: 'coverflow',
     grabCursor: true,
@@ -100,3 +99,8 @@ $('.create-form').on('submit', (event) => {
         });
     }
 });
+
+//Approve new requests
+
+
+//Delete new requests

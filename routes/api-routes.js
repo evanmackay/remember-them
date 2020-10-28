@@ -11,8 +11,7 @@ const router = express.Router();
     router.get('/SEALs', (req, res) => {
         db.ServiceMember.findAll({}).then(function(dbServiceMember){
             res.render('SEALs', dbServiceMember);
-
-        })
+        });
     });
 
     router.get('/creed', (req, res) => {
@@ -26,6 +25,12 @@ const router = express.Router();
     router.get('/about', (req, res) => {
         res.render('about');
     });
+
+    router.get('/admin', (req, res) => {
+        db.ServiceMember.findAll({}).then((dbServiceMember) => {
+            res.render('admin', dbServiceMember);
+        }); 
+    });
 // posting new info added by user to database
     router.post("/SEALs", function(req, res) {
         db.ServiceMember.create({
@@ -38,7 +43,6 @@ const router = express.Router();
             unit: req.body.unit,
             date_of_death: req.body.date_of_death,
             awards: req.body.awards,
-            biography: req.body.biography,
             summary_of_service: req.body.summary_of_service
 
         })

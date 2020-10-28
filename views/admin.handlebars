@@ -1,0 +1,24 @@
+<h1>Welcome to the admin page</h1>
+
+<p>Waiting submissions:</p>
+
+{{#each servicemembers}}
+{{#unless approved}}
+    <div class="card">
+        <img src="" alt="">
+        <div class="card-section">
+            <h2>{{this.first_name}} {{this.last_name}} - {{this.age}}</h2>
+            <p>{{this.date_of_birth}} - {{this.date_of_death}}</p>
+            <p>{{this.branch_of_service}}</p>
+            <p>Unit: {{this.unit}}</p>
+            <p>Awards and Recognitions: {{this.awards}}</p>
+            <p>Summary of Service: {{this.summary_of_service}}</p>
+
+            <button id="approve">Approve this entry</button>
+            <button id="delete">Delete this entry</button>
+            <button id="update">Update an entry</button>
+            
+        </div>
+    </div>
+{{/unless}}
+{{/each}}
