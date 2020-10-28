@@ -83,16 +83,22 @@ $('.create-form').on('submit', (event) => {
     let arr = [];
     let arr2 = [];
     let err;
+    let img = $('#fileToUpload').val().trim();
     let first = $('#first').val().trim();
     let last = $('#last').val().trim();
+    let branch = $('#branch').val().trim();
     let unit = $('#unit').val().trim();
     let awards = $('#awards').val().trim();
     let sos = $('#sos').val().trim();
     let dob = $('#dob').val().trim();
     let dod = $('#dod').val().trim();
 
+    console.log(img);
+
+
 
     arr.push(first, last, unit, awards, sos, dob, dod);
+
     arr2.push(dob, dod);
 
     //Validate all fields in the form
@@ -117,8 +123,10 @@ $('.create-form').on('submit', (event) => {
     //If there are no errors, data is pushed to the DB
     if(!err) {
         const newMember = {
+            image: $('#fileToUpload').val().trim(),
             first_name: $('#first').val().trim(),
             last_name: $('#last').val().trim(),
+            branch_of_service: $('#branch').val().trim(),
             age: $('#age').val(),
             date_of_birth: $('#dob').val().trim(),
             date_of_death: $('#dod').val().trim(),
