@@ -106,6 +106,10 @@ html, body {
     background: rgba(254, 254, 254, 0.15);
   }
 
+  blockquote {
+    text-align: center;
+  }
+
 /* aside controls */
 
 #aside {

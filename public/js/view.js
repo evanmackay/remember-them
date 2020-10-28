@@ -57,6 +57,7 @@ $('.create-form').on('submit', (event) => {
             age: $('#age').val(),
             date_of_birth: $('#dob').val().trim(),
             date_of_death: $('#dod').val().trim(),
+            branch_of_service: $('#BoS').val().trim(),
             unit: $('#unit').val().trim(),
             awards: $('#awards').val().trim(),
             summary_of_service: $('#sos').val().trim()
