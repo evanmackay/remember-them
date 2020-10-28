@@ -10,11 +10,11 @@ html, body {
 
 
 .wrapper {
+    text-align: center;
     background-color: black;
     font-family: Cinzel;
     color: white;
-    height: 100%;
-    width: 100%;
+
 }
 
 .container {
