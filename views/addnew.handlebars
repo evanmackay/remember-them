@@ -1,7 +1,16 @@
-<h1>Tell a new SEALs' story here</h1>
+<div class="wrapper">
+
+    <div class="container">
+        <header class="subnav-hero-section">
+            <h1 class="title">Remember Them<img src="/css/logo.png" alt="Navy SEAL Trident" height="50" width="101">
+            </h1>
+        </header>
+    </div>
+
+  <h1>Tell a New Servicemember's Story Here</h1>
 
 {{! Form for submitting a new SEAL with all of the fields sepcified in models }}
-<form>
+<form class="create-form">
   <div class="grid-container">
     <div class="grid-y grid-padding-y">
       <!-- First -->
@@ -55,22 +64,23 @@
       </div>
     </div>
   </div>
-  <a class="button success" href="/api/servicemembers">So Basic</a>
+
+  <button type="submit" class="button success">Submit</button>
 </form>
 
-<div id="error"><span></span></div>
+  <div id="error"><span></span></div>
 
 
-<footer>
-    <div class="flex-dir-row align-spaced">
-        <ul>
-            <li><a href='/'>Fallen SEALs</a></li>
-            <li>Quotes</li>
-            <li>Links</li>
-            <li>Videos</li>
-            <li><a href="/creed">SEAL Creed</a></li>
-        </ul>
-    </div>
-
-    <blockquote>"To us, and those like us, damn few."</blockquote>
-</footer>
+      <div class="container" id="menu-bar">    
+          <div>
+            <ul class="menu menu-hover-lines">
+                <li><a href="/">Home</a></li>
+                <li><a href="/SEALs">Fallen SEALs</a></li>
+                <li><a href="#">Quotes</a></li>
+                <li><a href="#">Links</a></li>
+                <li><a href="/creed">SEAL Creed</a></li>
+                <li><a href="/about">Contact Us</a></li>
+            </ul>
+          </div>
+      </div>
+</div>

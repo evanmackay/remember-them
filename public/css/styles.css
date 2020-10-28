@@ -1,10 +1,18 @@
+input {
+    color: white;
+}
+
 
 html, body {
     height: 100%;
 }
 
+
+
 .wrapper {
     background-color: black;
+    font-family: Cinzel;
+    color: white;
     height: 100%;
     width: 100%;
 }
@@ -22,6 +30,10 @@ html, body {
   height: 150px;
   width: 289px;
   padding-top: 15px;
+}
+
+.medium-6 {
+    color: rgb(129, 129, 129);
 }
 
 .menu {
@@ -93,6 +105,8 @@ html, body {
   .subnav-hero-subnav li a:hover {
     background: rgba(254, 254, 254, 0.15);
   }
+
+/* aside controls */
 
 #aside {
     border: solid 1px blue;
@@ -260,6 +274,7 @@ body {
 }
 
 
+
 /* swiper */
 .swiper-container {
   background: black;
@@ -280,3 +295,4 @@ body {
   width: 300px;
   height: 300px;
 }
+

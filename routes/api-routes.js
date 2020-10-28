@@ -9,7 +9,10 @@ const router = express.Router();
     });
 
     router.get('/SEALs', (req, res) => {
-        res.render('SEALs', ServiceMember);
+        db.ServiceMember.findAll({}).then(function(dbServiceMember){
+            res.render('SEALs', dbServiceMember);
+
+        })
     });
 
     router.get('/creed', (req, res) => {
@@ -24,12 +27,13 @@ const router = express.Router();
         res.render('about');
     });
 // posting new info added by user to database
-    router.post("/", function(req, res) {
+    router.post("/SEALs", function(req, res) {
         db.ServiceMember.create({
             image: req.body.image,
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             age: req.body.age,
+            branch_of_service: req.body.branch_of_service,
             date_of_birth: req.body.date_of_birth,
             unit: req.body.unit,
             date_of_death: req.body.date_of_death,
@@ -37,8 +41,12 @@ const router = express.Router();
             biography: req.body.biography,
             summary_of_service: req.body.summary_of_service
 
-        }).then(function(dbServiceMember) {
+        })
+        .then(function(dbServiceMember) {
             res.json(dbServiceMember)
+        })
+        .catch((err) => {
+            throw err;
         });
     });
 // allows user to delete info if they choose
@@ -59,6 +67,7 @@ const router = express.Router();
             first_name: req.body.name,
             last_name: req.body.name,
             age: req.body.age,
+            branch_of_service: req.body.branch_of_service,
             date_of_birth: req.body.date_of_birth,
             unit: req.body.unit,
             date_of_death: req.body.date_of_death,
