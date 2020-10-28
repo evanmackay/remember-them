@@ -69,13 +69,13 @@ router.post("/SEALs", function(req, res) {
 });
 
 //Admin users can delete requested additions
-router.delete("/:id", function(req, res) {
+router.delete("/SEALs/:id", function(req, res) {
     db.ServiceMember.destroy({
         where: {
             id: req.params.id
         }
     })
-    .then(function(dbServiceMember) {
+    .then((dbServiceMember) => {
         res.json(dbServiceMember)
     })
     .catch((err) => {
@@ -83,19 +83,9 @@ router.delete("/:id", function(req, res) {
     });
 });
 
-//Admin users can update status to approved 
+//Admin users can update status to approved for pending additions
 router.put("/SEALs/:id", (req, res) => {
     db.ServiceMember.update({
-        // image: req.body.image,
-        // first_name: req.body.name,
-        // last_name: req.body.name,
-        // age: req.body.age,
-        // branch_of_service: req.body.branch_of_service,
-        // date_of_birth: req.body.date_of_birth,
-        // unit: req.body.unit,
-        // date_of_death: req.body.date_of_death,
-        // awards: req.body.awards,
-        // summary_of_service: req.body.summary_of_service,
         approved: req.body.approved
     }, {
         where: {

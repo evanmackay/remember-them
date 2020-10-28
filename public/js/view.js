@@ -103,9 +103,8 @@ $('.create-form').on('submit', (event) => {
 
 //Approve a new submission
 $('#approve').on('click', function(event) {
-    console.log('HIT');
+    console.log('UPDATE');
     let id = $(this).data('id');
-    console.log('ID:' + id);
 
     let status = {
         approved: true
@@ -125,3 +124,18 @@ $('#approve').on('click', function(event) {
 });
 
 //Delete a new submission
+$('#delete').on('click', function(event) {
+    console.log('DELETE');
+    let id = $(this).data('id');
+
+    $.ajax('/SEALs/' + id, {
+        method: 'DELETE'
+    })
+    .then(() => {
+        console.log('Entry has been deleted');
+        location.reload();
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+});
