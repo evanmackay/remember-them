@@ -10,9 +10,14 @@
   <h1>Tell a New Servicemember's Story Here</h1>
 
 {{! Form for submitting a new SEAL with all of the fields sepcified in models }}
-<form class="create-form">
+<form class="create-form" action="upload.php" method="post" enctype="multipart/form-data">
   <div class="grid-container">
     <div class="grid-y grid-padding-y">
+      <!-- Image upload -->
+      <div class="medium-6 cell">
+        Select image to upload:
+        <input type="file" name="fileToUpload" id="fileToUpload">
+      </div>
       <!-- First -->
       <div class="medium-6 cell">
         <label>First Name
@@ -29,13 +34,26 @@
       <div class="medium-6 cell">
         <label>
           How old is this individual?
-          <input type="number" value="110" id='age'>
+          <input type="number" min="17" max="120" id="age">
+        </label>
+      </div>
+      <!-- Branch of Service --> 
+      <div class="medium-6 cell">
+        <label>
+          Which branch did this individual serve in?
+          <select name="branch" id="branch">
+            <option value="army">Army</option>
+            <option value="marine-corps">Marine Corps</option>
+            <option value="navy">Navy</option>
+            <option value="air-force">Air Force</option>
+            <option value="coast-guard">Coast Guard</option>
+            <option value="national-guard">National Guard</option>
         </label>
       </div>
       <!-- DOB -->
       <div class="medium-6 cell">
         <label>Date of birth
-          <input type="text" placeholder="MM/DD/YYYY" id='dob'>
+          <input type="text" placeholder="MM/DD/YYYY" id="dob">
         </label>
       </div>
       <!-- DOD -->
@@ -65,7 +83,7 @@
     </div>
   </div>
 
-  <button type="submit" class="button success">Submit</button>
+  <button type="submit" value="Upload Image" name="submit" class="button success">Submit</button>
 </form>
 
   <div id="error"><span></span></div>
