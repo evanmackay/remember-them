@@ -238,6 +238,9 @@ body {
     padding-right: .5rem;
 }
 
+#error {
+  color: red;
+}
 
 /* About styles section
 ======================= */
