@@ -8,8 +8,6 @@ background-color: black;
 color: white;
 }
 
-
-
 .wrapper {
     text-align: center;
     background-color: black;
@@ -330,3 +328,49 @@ body {
   height: 300px;
 }
 
+/* Admin.hbls styles */
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 10px;
+  border: 1px solid white;
+  border-radius: 20px;
+}
+
+#approve {
+  margin: 0;
+}
+
+@media screen and (min-width: 320px) and (max-width: 425px) {
+  .card {
+    flex: 0 0 100%;
+  }
+}
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+  .card {
+    flex: 0 0 45%;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .card {
+    flex: 0 0 30%;
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  .card {
+    flex: 0 0 25%;
+  }
+}
+
+@media screen and (min-width: 1441px) {
+  .card {
+    flex: 0 0 25%;
+  }
+}
