@@ -266,6 +266,61 @@ body {
   padding-bottom: 10px;
 }
 
+/* Links page styles section 
+============================*/
+
+.work-feature-block-header {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  color: rgb(31, 148, 148);
+}
+
+.work-feature-block-image {
+  display: block;
+  margin: auto;
+}
+
+#movie-info {
+  text-align: justify;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  padding-left: 45px;
+  padding-right: 45px;
+  padding-top: 30px;
+}
+
+#movie-poster {
+  border: 1px solid white;
+}
+
+.title-header {
+  padding-bottom: 30px;
+  color: rgb(144, 179, 207);
+  text-shadow: rgb(95, 119, 156) 2px 2px 5px;
+}
+
+#book-info {
+  text-align: justify;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  padding-left: 45px;
+  padding-right: 45px;
+  padding-top: 30px;
+}
+
+#links-info {
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Cinzel', serif;
+}
+
+
+
+
+
+
+
 
 
 
