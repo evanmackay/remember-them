@@ -8,12 +8,12 @@
     <div class="card">
         <img src="" alt="">
         <div class="card-section">
-            <h2>{{this.first_name}} {{this.last_name}} - {{this.age}}</h2>
-            <p>{{this.date_of_birth}} - {{this.date_of_death}}</p>
-            <p>{{this.branch_of_service}}</p>
-            <p>Unit: {{this.unit}}</p>
-            <p>Awards and Recognitions: {{this.awards}}</p>
-            <p>Summary of Service: {{this.summary_of_service}}</p>
+            <h2>{{this.dataValues.first_name}} {{this.dataValues.last_name}} - {{this.dataValues.age}}</h2>
+            <p>{{this.dataValues.date_of_birth}} - {{this.dataValues.date_of_death}}</p>
+            <p>{{this.dataValues.branch_of_service}}</p>
+            <p><strong>Unit:</strong> {{this.dataValues.unit}}</p>
+            <p><strong>Awards and Recognitions:</strong> {{this.dataValues.awards}}</p>
+            <p><strong>Summary of Service:</strong> {{this.dataValues.summary_of_service}}</p>
         </div>
     </div>
     {{/each}}

@@ -100,3 +100,42 @@ $('.create-form').on('submit', (event) => {
         });
     }
 });
+
+//Approve a new submission
+$('#approve').on('click', function(event) {
+    console.log('UPDATE triggered');
+    let id = $(this).data('id');
+
+    let status = {
+        approved: true
+    };
+
+    $.ajax('/SEALs/' + id, {
+        method: 'PUT',
+        data: status
+    })
+    .then(() => {
+        console.log('Entry approved!');
+        location.reload();
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+});
+
+//Delete a new submission
+$('#delete').on('click', function(event) {
+    console.log('DELETE triggered');
+    let id = $(this).data('id');
+
+    $.ajax('/SEALs/' + id, {
+        method: 'DELETE'
+    })
+    .then(() => {
+        console.log('Entry has been deleted');
+        location.reload();
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+});
