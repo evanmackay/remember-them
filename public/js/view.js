@@ -25,11 +25,6 @@ function isEmpty(val) {
     }
 };
 
-function isDate(date) {
-    let patt = new RegExp('^(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](18|19|20)\\d\\d$');
-    let res = patt.test(date);
-    return res;
-};
 
 
 //Enter a new member
@@ -37,7 +32,6 @@ $('.create-form').on('submit', (event) => {
     event.preventDefault();
 
     let arr = [];
-    let arr2 = [];
     let err;
     let img = $('#fileToUpload').val().trim();
     let first = $('#first').val().trim();
@@ -51,7 +45,6 @@ $('.create-form').on('submit', (event) => {
     let dod = $('#dod').val().trim();
 
     arr.push(first, last, branch, unit, awards, sos, dob, dod);
-    arr2.push(dob, dod);
 
     //Validate all fields in the form
     for(i = 0; i < arr.length; i++) {
@@ -62,15 +55,6 @@ $('.create-form').on('submit', (event) => {
             err = false;
         }
     };
-
-    for(i = 0; i < arr2.length; i++) {
-        if(!isDate(arr2[i])) {
-            err = true;
-            $('#error').text('The date was entered in an invalid format. Please use MM/DD/YYY format.');
-        } else {
-            err = false;
-        }
-        };
 
     //If there are no errors, data is posted
     if(!err) {
