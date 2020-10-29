@@ -25,6 +25,10 @@ router.get('/SEALs', (req, res) => {
     });
 });
 
+router.get('/links', (req, res) => {
+    res.render('links');
+});
+
 router.get('/creed', (req, res) => {
     res.render('creed');
 });
