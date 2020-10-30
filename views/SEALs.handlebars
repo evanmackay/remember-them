@@ -6,7 +6,7 @@
     <div class="flex-container">
         {{#each servicemembers}}
         <div class="card">
-            <img src="" alt="Photo of {{this.dataValues.first_name}} {{this.dataValues.last_name}}">
+            <img src="{{this.dataValues.image}}" alt="Photo of {{this.dataValues.first_name}} {{this.dataValues.last_name}}">
             <div class="card-section">
                 <h2>{{this.dataValues.first_name}} {{this.dataValues.last_name}} - {{this.dataValues.age}}</h2>
                 <p>{{this.dataValues.date_of_birth}} - {{this.dataValues.date_of_death}}</p>

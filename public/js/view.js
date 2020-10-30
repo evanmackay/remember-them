@@ -42,13 +42,12 @@ $('.create-form').on('submit', (event) => {
     let unit = $('#unit').val().trim();
     let awards = $('#awards').val().trim();
     let sos = $('#sos').val().trim();
-    let dob = $('#dob').innerHTML();
-    let dod = $('#dod').innerHTML();
+    let dob = $('#dob').val().trim();
+    let dod = $('#dod').val().trim();
     let convertedDate;
     
 
     function dateConversion(date) {
-        
         const d = new Date(date);
         const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
         const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d);
@@ -94,7 +93,8 @@ $('.create-form').on('submit', (event) => {
         })
         .then(() => {
             console.log('Member added');
-            location.reload();
+            console.log(newMember.date_of_birth)
+            // location.reload();
         })
         .catch((err) => {
             throw err;
