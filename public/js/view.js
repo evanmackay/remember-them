@@ -93,8 +93,8 @@ $('.create-form').on('submit', (event) => {
         })
         .then(() => {
             console.log('Member added');
-            console.log(newMember.date_of_birth)
-            // location.reload();
+            // console.log(newMember.date_of_birth)
+            location.reload();
         })
         .catch((err) => {
             throw err;
