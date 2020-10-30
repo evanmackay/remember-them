@@ -42,8 +42,8 @@ $('.create-form').on('submit', (event) => {
     let unit = $('#unit').val().trim();
     let awards = $('#awards').val().trim();
     let sos = $('#sos').val().trim();
-    let dob = $('#dob').text();
-    let dod = $('#dod').text();
+    let dob = $('#dob').innerHTML();
+    let dod = $('#dod').innerHTML();
     let convertedDate;
     
 

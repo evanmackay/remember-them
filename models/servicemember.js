@@ -3,7 +3,7 @@
 module.exports = function(sequelize, DataTypes) {
     
     var ServiceMember = sequelize.define("ServiceMember", {
-        image: {type: DataTypes.BLOB('long')},
+        image: {type: DataTypes.STRING},
         first_name: { type: DataTypes.STRING, allowNull: false, validate: {len: [1, 50] } },
         last_name: { type: DataTypes.STRING, allowNull: false, validate: {len: [1, 50] } },
         age: { type: DataTypes.INTEGER, allowNull: false, validate: {len: [1, 20] } },
