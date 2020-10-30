@@ -107,6 +107,7 @@ color: white;
 
   blockquote {
     text-align: center;
+    border-left: none;
   }
 
 /* aside controls */
@@ -316,8 +317,7 @@ body {
 
 .contact-us-section .contact-us-header {
   margin-bottom: 2rem;
-  color: rgb(63, 63, 218);
-  text-shadow: rgb(78, 81, 87) 2px 2px 5px;
+  color: goldenrod;
 }
 
 .contact-us-section .responsive-embed {
