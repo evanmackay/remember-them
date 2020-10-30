@@ -3,7 +3,7 @@
     <h1>The Fallen</h1>
 
     {{! View all of the SEALs that currently exist in the database }}
-    <div class="flex-container">
+    <div class="flex-container" id="photo">
         {{#each servicemembers}}
         <div class="card">
             <img src="{{this.dataValues.image}}" alt="Photo of {{this.dataValues.first_name}} {{this.dataValues.last_name}}">
