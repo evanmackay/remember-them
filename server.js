@@ -28,6 +28,7 @@ db.sequelize.sync().then(function () {
     });
 });
 
+
 request("https://www.navysealfoundation.org/our-fallen-heroes/", (error, response, html) => {
     if (!error && response.statusCode == 200) {
         const $ = cheerio.load(html);
@@ -49,3 +50,4 @@ request("https://www.navysealfoundation.org/our-fallen-heroes/", (error, respons
         })
     }
 });
+
