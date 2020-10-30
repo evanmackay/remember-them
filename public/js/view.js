@@ -25,12 +25,13 @@ function isEmpty(val) {
     }
 };
 
+  
+
 
 
 //Enter a new member
 $('.create-form').on('submit', (event) => {
     event.preventDefault();
-
     let arr = [];
     let err;
     let img = $('#fileToUpload').val().trim();
@@ -41,8 +42,24 @@ $('.create-form').on('submit', (event) => {
     let unit = $('#unit').val().trim();
     let awards = $('#awards').val().trim();
     let sos = $('#sos').val().trim();
-    let dob = $('#dob').val().trim();
-    let dod = $('#dod').val().trim();
+    let dob = $('#dob').text();
+    let dod = $('#dod').text();
+    let convertedDate;
+    
+
+    function dateConversion(date) {
+        
+        const d = new Date(date);
+        const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
+        const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d);
+        const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
+        convertedDate = `${da}-${mo}-${ye}`
+        return convertedDate
+        // console.log(convertedDate);
+
+    }
+
+    console.log(img)
 
     arr.push(first, last, branch, unit, awards, sos, dob, dod);
 
@@ -64,8 +81,8 @@ $('.create-form').on('submit', (event) => {
             last_name: last,
             branch_of_service: branch,
             age: age,
-            date_of_birth: dob,
-            date_of_death: dod,
+            date_of_birth: dateConversion(dob),
+            date_of_death: dateConversion(dod),
             unit: unit,
             awards: awards,
             summary_of_service: sos
