@@ -28,25 +28,26 @@ db.sequelize.sync().then(function () {
     });
 });
 
-// request("https://www.navysealfoundation.org/our-fallen-heroes/", (error, response, html) => {
-//     if (!error && response.statusCode == 200) {
-//         const $ = cheerio.load(html);
-//         // const fallenHeroContainer = $(".fallen-hero-item")
-//         // var fallenHeroArr = []
-//         // var fallenHeroInd = $(".fallen-container").find("div")
-//         $(".fallen-hero-item").each(function (i, res) {
-//             // console.log(res)
 
-//             var fallenSeal = {}
+request("https://www.navysealfoundation.org/our-fallen-heroes/", (error, response, html) => {
+    if (!error && response.statusCode == 200) {
+        const $ = cheerio.load(html);
+        // const fallenHeroContainer = $(".fallen-hero-item")
+        // var fallenHeroArr = []
+        // var fallenHeroInd = $(".fallen-container").find("div")
+        $(".fallen-hero-item").each(function (i, res) {
+            // console.log(res)
 
-//             fallenSeal.name = $(this).find('h6').text();
-//             fallenSeal.rank = $(this).find('.fallen-hero-rank').text();
-//             fallenSeal.dod = $(this).find('.fallen-hero-death').text();
-//             fallenSeal.pod = $(this).find('.fallen-hero-location').text();
-//             fallenSeal.img = $(this).find('image-container').attr();
-//             console.log(fallenSeal)
+            var fallenSeal = {}
 
-//         }
-//         )
-//     }
-// });
+            fallenSeal.name = $(this).find('h6').text();
+            fallenSeal.rank = $(this).find('.fallen-hero-rank').text();
+            fallenSeal.dod = $(this).find('.fallen-hero-death').text();
+            fallenSeal.pod = $(this).find('.fallen-hero-location').text();
+            fallenSeal.img = $(this).find('image-container').attr();
+            // console.log(fallenSeal)
+
+        })
+    }
+});
+
