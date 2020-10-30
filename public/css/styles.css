@@ -264,6 +264,95 @@ body {
   padding-bottom: 10px;
 }
 
+/* Contact Us styles section
+=========================== */
+
+#contact-form {
+  background-color: black;
+  width: 75%;
+  margin: auto;
+}
+
+.contact-us-section {
+  background: #fefefe;
+  font-family: 'Roboto', sans-serif;
+}
+
+.contact-us-section .contact-us-section-left {
+  padding-right: 2rem;
+  border-bottom: 2px solid #e6e6e6;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  background-color: black;
+}
+
+#name-field {
+  background-color: transparent;
+  border: solid white 2px;
+  color: white;
+}
+
+#email-field {
+  background-color: transparent;
+  border: solid white 2px;
+  color: white;
+}
+
+#message-field {
+  background-color: transparent;
+  border: solid white 2px;
+  color: white;
+}
+
+#form-button {
+  background-color: transparent;
+  border: solid white 2px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.contact-us-section .contact-us-section-right {
+  padding-left: 2rem;
+}
+
+.contact-us-section .contact-us-header {
+  margin-bottom: 2rem;
+  color: rgb(63, 63, 218);
+  text-shadow: rgb(78, 81, 87) 2px 2px 5px;
+}
+
+.contact-us-section .responsive-embed {
+  margin-bottom: 0;
+  padding-bottom: 55%;
+}
+
+.contact-us-form input[type=text],
+.contact-us-form input[type=email],
+.contact-us-form textarea {
+  margin-bottom: 1.5rem;
+}
+
+.contact-us-form-actions {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.contact-us-form-actions input[type=submit] {
+  border-radius: 5000px;
+}
+
+.contact-us-form-actions .contact-us-file-button {
+  background: transparent;
+  color: #8a8a8a;
+}
+
+
 /* Links page styles section 
 ============================*/
 
