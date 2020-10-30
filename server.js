@@ -44,7 +44,9 @@ request("https://www.navysealfoundation.org/our-fallen-heroes/", (error, respons
             fallenSeal.dod = $(this).find('.fallen-hero-death').text();
             fallenSeal.pod = $(this).find('.fallen-hero-location').text();
             fallenSeal.img = $(this).find('image-container').attr();
-            // console.log(fallenSeal)
+            fallenSeal.img = $(this).find('.image-container').attr('data-src-img')
+            
+            console.log(fallenSeal)
 
         })
     }
