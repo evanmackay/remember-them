@@ -16,11 +16,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "init": "^0.1.2",
     "mysql": "^2.18.1",
     "mysql2": "^1.7.0",
+    "request": "^2.88.2",
+    "require": "^2.4.20",
     "sequelize": "^4.44.4"
   },
   "devDependencies": {
