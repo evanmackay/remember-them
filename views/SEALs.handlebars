@@ -2,6 +2,22 @@
 
     <h1>The Fallen</h1>
 
+    <div class="container" id="menu-bar">    
+        <div>
+            <ul class="menu menu-hover-lines">
+                <li><a href="/">Home</a></li>
+                <li><a href="/SEALs">Fallen Service Members</a></li>
+                <li><a href="/creed">Creeds</a></li>
+                {{!-- <li><a href="/links">Links</a></li> --}}
+                {{!-- <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact Us</a></li> --}}
+            </ul>
+
+        </div>
+    </div>
+
+    <br>
+
     {{! View all of the SEALs that currently exist in the database }}
     <div class="flex-container" id="photo">
         {{#each servicemembers}}
@@ -20,22 +36,23 @@
     </div>
     
 
-
     <footer>
 
-        <div class="container" id="menu-bar">    
+        <div class="container" id="footer-bar">    
             <div>
                 <ul class="menu menu-hover-lines">
-                    <li><a href="/">Home</a></li>
+                    {{!-- <li><a href="/">Home</a></li>
                     <li><a href="/SEALs">Fallen Service Members</a></li>
-                    <li><a href="#">Quotes</a></li>
-                    <li><a href="#">Links</a></li>
-                    <li><a href="/creed">Creeds</a></li>
-                    <li><a href="/about">Contact Us</a></li>
+                    <li><a href="/creed">Creeds</a></li> --}}
+                    <li><a href="/links">Links</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
                 </ul>
-            </div>
-        </div>
 
+            </div>
+
+        </div>
             <blockquote id="quote">"To us, and those like us, damn few."</blockquote>
     </footer>
+
 </div>
