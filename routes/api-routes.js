@@ -4,7 +4,8 @@ const router = express.Router();
 const request = require("request");
 const cheerio = require("cheerio");
 const { format } = require("mysql");
-const fs = require ('fs')
+const fs = require('fs')
+const axios = require('axios')
 //GET requests to display various handlebars files
 router.get("/", function (req, res) {
     res.render("index");
@@ -25,13 +26,14 @@ router.get('/SEALs', (req, res) => {
             dbServiceMember = dbServiceMember.map(formatDbData)
             console.log("after", dbServiceMember)
 
-            function formatSiteData(data) {
+            function formatSiteData(data, buf) {
                 var fallenSeal = {}
-                fs.readFile(img, function (er,buf){
-                    Buffer.isBuffer(buf);
-                    console.log(Buffer.from(buf))  
-                    fallenSeal.img = data.find('.image-container').attr('data-src-img')
-                })
+                
+                // var buf = fs.readFileSync(data.find('.image-container').attr('data-src-img'))
+                // Buffer.isBuffer(buf);
+                // console.log("this is the buf", buf)
+                fallenSeal.img = buf
+
                 fallenSeal.first_name = data.find('h6').text();
                 fallenSeal.last_name = "-"
                 fallenSeal.age = "-"
@@ -56,7 +58,7 @@ router.get('/SEALs', (req, res) => {
 
 
             function formatDbData(data) {
-                // return data.dataValues
+                return data.dataValues
 
                 // const formatedDbData = data
                 // const entries = Object.key(data).map(key => {
@@ -65,7 +67,7 @@ router.get('/SEALs', (req, res) => {
                 // });
 
             }
-       
+
 
             //    console.log(data)
             // format()
@@ -110,8 +112,19 @@ router.get('/SEALs', (req, res) => {
                         // fallenSeal.date_of_birth = "-"
                         // fallenSeal.age = "-"
                         // console.log(fallenSeal)
-                        var format = formatSiteData($(this))
-                        result.push(format)
+                        axios.get(($(this).find('.image-container').attr('data-src-img')),{responseType: "arrayBuffer"}).then(
+                            axiResponce => {
+                                const buf = Buffer.from(axiResponce.data, "utf-8")
+                                var format = formatSiteData($(this), buf)
+                                result.push(format)
+console.log(buf)
+
+                            }
+                        )
+                        .catch(axiResponce => console.error(axiResponce))
+
+
+
 
 
 
