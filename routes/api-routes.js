@@ -28,7 +28,7 @@ router.get('/SEALs', (req, res) => {
 
             function formatSiteData(data, buf) {
                 var fallenSeal = {}
-                
+
                 // var buf = fs.readFileSync(data.find('.image-container').attr('data-src-img'))
                 // Buffer.isBuffer(buf);
                 // console.log("this is the buf", buf)
@@ -94,34 +94,23 @@ router.get('/SEALs', (req, res) => {
                 if (!error && response.statusCode == 200) {
                     const $ = cheerio.load(html);
                     // const fallenHeroContainer = $(".fallen-hero-item")
-                    var fallenHeroArr = []
                     // var fallenHeroInd = $(".fallen-container").find("div")
                     $(".fallen-hero-item").each(function (i, res) {
                         // console.log(res)
 
                         // var fallenSeal = {}
 
-                        // fallenSeal.first_name = $(this).find('h6').text();
-                        // fallenSeal.unit = $(this).find('.fallen-hero-rank').text();
-                        // fallenSeal.date_of_death = $(this).find('.fallen-hero-death').text();
-                        // fallenSeal.pod = $(this).find('.fallen-hero-location').text();
-                        // // fallenSeal.img = $(this).find('image-container').attr();
-                        // fallenSeal.img = $(this).find('.image-container').attr('data-src-img')
-                        // fallenSeal.branch_of_service = "Navy"
-                        // fallenSeal.biography = "-"
-                        // fallenSeal.date_of_birth = "-"
-                        // fallenSeal.age = "-"
-                        // console.log(fallenSeal)
-                        axios.get(($(this).find('.image-container').attr('data-src-img')),{responseType: "arrayBuffer"}).then(
-                            axiResponce => {
+
+                        axios.get(($(this).find('.image-container').attr('data-src-img')), { responseType: "arrayBuffer" })
+                            .then(axiResponce => {
                                 const buf = Buffer.from(axiResponce.data, "utf-8")
                                 var format = formatSiteData($(this), buf)
                                 result.push(format)
-console.log(buf)
+                                // console.log(buf)
 
                             }
-                        )
-                        .catch(axiResponce => console.error(axiResponce))
+                            )
+                            .catch(axiResponce => console.error(axiResponce))
 
 
 

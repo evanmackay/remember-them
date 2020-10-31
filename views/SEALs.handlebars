@@ -7,11 +7,10 @@
    
    <h1>all others</h1>
     <div class="flex-container">
-        {{#each servicemembers}}
         <div class="card">
             <img src="{{this.dataValues.image}}" alt="Photo of {{this.dataValues.first_name}} {{this.dataValues.last_name}}">
             <div class="card-section">
-                <h2>{{this.name}} - {{this.dataValues.age}}</h2>
+                <h2>{{this.dataValues.name}} - {{this.dataValues.age}}</h2>
                 <p>{{this.dataValues.date_of_birth}} - {{this.dataValues.date_of_death}}</p>
                 <p>{{this.dataValues.branch_of_service}}</p>
                 <p><strong>Unit:</strong> {{this.dataValues.unit}}</p>
@@ -19,7 +18,6 @@
                 <p><strong>Summary of Service:</strong> {{this.dataValues.summary_of_service}}</p>
             </div>
         </div>
-        {{/each}}
     </div>
     
 
