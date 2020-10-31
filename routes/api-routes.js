@@ -13,7 +13,7 @@ router.get("/", function (req, res) {
 router.get('/SEALs', (req, res) => {
     // we can now use result over calling dbServiceMember
     var result = []
-    
+
     db.ServiceMember.findAll({
 
         where: {
@@ -25,24 +25,53 @@ router.get('/SEALs', (req, res) => {
             function formatSiteData(data) {
                 var fallenSeal = {}
 
+                fallenSeal.img = data.find('.image-container').attr('data-src-img')
                 fallenSeal.first_name = data.find('h6').text();
-                fallenSeal.last_name = " "
+                fallenSeal.last_name = "-"
+                fallenSeal.age = "-"
+                fallenSeal.branch_of_service = "Navy"
+                fallenSeal.date_of_birth = "-"
                 fallenSeal.unit = data.find('.fallen-hero-rank').text();
                 fallenSeal.date_of_death = data.find('.fallen-hero-death').text();
-                fallenSeal.pod = data.find('.fallen-hero-location').text();
-                // fallenSeal.img = $(this).find('image-container').attr();
-                fallenSeal.img = data.find('.image-container').attr('data-src-img')
-                fallenSeal.branch_of_service = "Navy"
-                fallenSeal.biography = "-"
-                fallenSeal.date_of_birth = "-"
-                fallenSeal.age = "-"
+                fallenSeal.awards = "-"
+                // this was pod but has been switched to bio for fit format
+                fallenSeal.biography = data.find('.fallen-hero-location').text();
+                // fallenSeal.biography = "-"
+                fallenSeal.summary_of_service = "-"
+
                 // console.log(fallenSeal)
                 return fallenSeal
             }
             function formatDbData(data) {
-                dbServiceMember = dbServiceMember.map()
                 
-                console.log(data)
+                const formatedDbData = data => {
+                    const entries = Object.entries(data);
+                    entries.forEach(entry => entry[0] = +entry[0]);
+                    return entries;
+                }              
+                // console.log("the big D", data)
+                console.log(formatedDbData(data));
+
+            //    console.log(data)
+               // format()
+                // var fallenSeal = {}
+
+                // fallenSeal.img = data.find('.image-container').attr('data-src-img')
+                // fallenSeal.first_name = data.find('h6').text();
+                // fallenSeal.last_name = "-"
+                // fallenSeal.age = "-"
+                // fallenSeal.branch_of_service = "Navy"
+                // fallenSeal.date_of_birth = "-"
+                // fallenSeal.unit = data.find('.fallen-hero-rank').text();
+                // fallenSeal.date_of_death = data.find('.fallen-hero-death').text();
+                // fallenSeal.awards = "-"
+                // // this was pod but has been switched to bio for fit format
+                // fallenSeal.biography = data.find('.fallen-hero-location').text();
+                // // fallenSeal.biography = "-"
+                // fallenSeal.summary_of_service = "-"
+
+                // // console.log(fallenSeal)
+                // return fallenSeal
             }
             request("https://www.navysealfoundation.org/our-fallen-heroes/", (error, response, html) => {
                 if (!error && response.statusCode == 200) {
@@ -66,13 +95,13 @@ router.get('/SEALs', (req, res) => {
                         // fallenSeal.date_of_birth = "-"
                         // fallenSeal.age = "-"
                         // console.log(fallenSeal)
-                        var temp = formatSiteData($(this))
-                        result.push(temp)
+                        var format = formatSiteData($(this))
+                        result.push(format)
 
 
 
                     })
-                    // console.log(dbServiceMember.slice(1, 3))
+                    console.log(result.slice(1, 3))
                     let obj = {
                         servicemembers: result
                     }
