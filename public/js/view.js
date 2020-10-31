@@ -25,19 +25,14 @@ function isEmpty(val) {
     }
 };
 
-function isDate(date) {
-    let patt = new RegExp('^(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](18|19|20)\\d\\d$');
-    let res = patt.test(date);
-    return res;
-};
+  
+
 
 
 //Enter a new member
 $('.create-form').on('submit', (event) => {
     event.preventDefault();
-
     let arr = [];
-    let arr2 = [];
     let err;
     let img = $('#fileToUpload').val().trim();
     let first = $('#first').val().trim();
@@ -49,9 +44,23 @@ $('.create-form').on('submit', (event) => {
     let sos = $('#sos').val().trim();
     let dob = $('#dob').val().trim();
     let dod = $('#dod').val().trim();
+    let convertedDate;
+    
+
+    function dateConversion(date) {
+        const d = new Date(date);
+        const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
+        const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d);
+        const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
+        convertedDate = `${da}-${mo}-${ye}`
+        return convertedDate
+        // console.log(convertedDate);
+
+    }
+
+    console.log(img)
 
     arr.push(first, last, branch, unit, awards, sos, dob, dod);
-    arr2.push(dob, dod);
 
     //Validate all fields in the form
     for(i = 0; i < arr.length; i++) {
@@ -63,15 +72,6 @@ $('.create-form').on('submit', (event) => {
         }
     };
 
-    for(i = 0; i < arr2.length; i++) {
-        if(!isDate(arr2[i])) {
-            err = true;
-            $('#error').text('The date was entered in an invalid format. Please use MM/DD/YYY format.');
-        } else {
-            err = false;
-        }
-        };
-
     //If there are no errors, data is posted
     if(!err) {
         const newMember = {
@@ -80,8 +80,8 @@ $('.create-form').on('submit', (event) => {
             last_name: last,
             branch_of_service: branch,
             age: age,
-            date_of_birth: dob,
-            date_of_death: dod,
+            date_of_birth: dateConversion(dob),
+            date_of_death: dateConversion(dod),
             unit: unit,
             awards: awards,
             summary_of_service: sos
@@ -93,6 +93,7 @@ $('.create-form').on('submit', (event) => {
         })
         .then(() => {
             console.log('Member added');
+            // console.log(newMember.date_of_birth)
             location.reload();
         })
         .catch((err) => {
