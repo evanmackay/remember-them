@@ -46,7 +46,7 @@ color: white;
 }
 
 #sanity {
-  border: solid 1px white;
+  border: solid 1px#807a2b;
 }
 
 #sanity2 {
@@ -71,7 +71,7 @@ color: white;
 }
 
 #aside {
-    border: solid 1px blue;
+    border: solid 1px #807a2b;
     color: white;
 }
 
@@ -102,7 +102,7 @@ color: white;
 
   .top-bar {
     background-color: transparent;
-    border: solid 2px white;
+    border: solid 2px #807a2b;
 
   }
 
@@ -692,6 +692,7 @@ body {
 }
 /* swiper */
 .swiper-container {
+  border-color: #807a2b;
   background: black;
   color:black ;
   margin: 0;
