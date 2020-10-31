@@ -23,72 +23,85 @@
 
     <br>  
 
-  <h1>Tell a New Servicemember's Story Here</h1>
+  <h1 id="add-hero-title">Add a Hero to our Site</h1>
 
 {{! Form for submitting a new SEAL with all of the fields sepcified in models }}
 <form class="create-form" action="upload.php" method="post" enctype="multipart/form-data">
   <div class="grid-container">
     <div class="grid-y grid-padding-y">
+      
       <!-- Image upload -->
       <div class="medium-6 cell">
         Enter the URL of the image of the Service Member
         <input type="text" name="fileToUpload" id="fileToUpload">
       </div>
-      <!-- First -->
-      <div class="medium-6 cell">
-        <label>First Name
-          <input type="text" placeholder="First" id="first">
-        </label>
+      
+      <!-- First Name -->
+      <div class="grid-x grid-padding-x">
+        <div class="cell small-6">
+          <label>First Name
+            <input type="text" placeholder="First" id="first">
+          </label>
+        </div>
+        {{!-- Last Name --}}
+        <div class="cell small-6">
+          <label>Last Name
+            <input type="text" placeholder="Last" id="last">
+          </label>
+        </div>
       </div>
-      <!-- Last -->
-      <div class="medium-6 cell">
-        <label>Last Name
-          <input type="text" placeholder="Last" id="last">
-        </label>
-      </div>
+      
       <!-- Age -->
-      <div class="medium-6 cell">
-        <label>
-          How old is this individual?
-          <input type="number" min="17" max="120" id="age">
-        </label>
-      </div>
-      <!-- Branch of Service --> 
-      <div class="medium-6 cell">
-        <label>
-          Which branch did this individual serve in?
-          <select name="branch" id="branch">
-            <option value="Army">Army</option>
-            <option value="Marine Corps">Marine Corps</option>
-            <option value="Navy">Navy</option>
-            <option value="Air Force">Air Force</option>
-            <option value="Coast Guard">Coast Guard</option>
-          </select>
-      </div>
+      <div class="grid-x grid-padding-x">
+        <div class="cell small-6">
+          <label>
+            Which branch of service?
+            <select name="branch" id="branch">
+              <option value="Army">Army</option>
+              <option value="Marine Corps">Marine Corps</option>
+              <option value="Navy">Navy</option>
+              <option value="Air Force">Air Force</option>
+              <option value="Coast Guard">Coast Guard</option>
+            </select>
+        </div>
+        <div class="cell small-6">
+          <label>
+            How old is this individual?
+            <input type="number" min="17" max="120" id="age" placeholder="Age">
+          </label>
+        </div>
+      </div>  
+      
       <!-- DOB -->
-      <div class="medium-6 cell">
-        <label>Date of birth
-          <input type="date" id="dob">
-        </label>
+      <div class="grid-x grid-padding-x">
+        <div class="cell small-6">
+          <label>Date of birth
+            <input type="date" id="dob">
+          </label>
+        </div>
+      
+      {{!-- DOD --}}
+        <div class="cell small-6">
+          <label>Date of death
+            <input type="date" id="dod">
+          </label>
+        </div>
       </div>
-      <!-- DOD -->
-      <div class="medium-6 cell">
-        <label>Date of death
-          <input type="date" id="dod">
-        </label>
-      </div>
+      
       <!-- Unit -->
       <div class="medium-6 cell">
         <label>Unit
           <input type="text" placeholder="Unit" id="unit">
         </label>
       </div>
+      
       <!-- Awards -->
       <div class="medium-6 cell">
         <label>Awards
           <input type="text" placeholder="Awards" id="awards">
         </label>
       </div>
+      
       <!-- Summary of Service -->
       <div class="medium-6 cell">
         <label>Summary of service
@@ -98,7 +111,7 @@
     </div>
   </div>
 
-  <button type="submit" value="Upload Image" name="submit" class="button success">Submit</button>
+  <button type="submit" value="Upload Image" name="submit" class="button success" id="add-hero-submit">Submit</button>
 </form>
 
 <div><span id="error"></span></div>
