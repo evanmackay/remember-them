@@ -46,7 +46,7 @@ color: white;
 }
 
 #sanity {
-  border: solid 1px white;
+  border: solid 1px#807a2b;
 }
 
 #sanity2 {
@@ -75,7 +75,8 @@ color: white;
 }
 
 #aside {
-    border: solid 1px blue;
+    justify-content: flex;
+    border: solid 1px #807a2b;
     color: white;
 }
 
@@ -83,6 +84,7 @@ color: white;
     color: white;
     list-style-type: none;
     justify-items: right;
+    margin-right: .5rem;
 }
 
 .footer-list {
@@ -90,8 +92,8 @@ color: white;
     display: inline-flex;
 }
 
-.list-item {
-    padding-right: .5rem;
+.li{
+    margin-right: .5rem;
 }
 
 /* CREED PAGE */
@@ -106,7 +108,7 @@ color: white;
 
   .top-bar {
     background-color: transparent;
-    border: solid 2px white;
+    border: solid 2px #807a2b;
 
   }
 
@@ -753,9 +755,13 @@ body {
 }
 
 
-
+.swiper-wrapper {
+  justify-content: center;
+  align-items: center;
+}
 /* swiper */
 .swiper-container {
+  border-color: #807a2b;
   background: black;
   color:black ;
   margin: 0;
@@ -766,6 +772,7 @@ body {
   width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
+
 }
 
 .swiper-slide {
@@ -776,6 +783,11 @@ body {
 }
 
 /* Admin.hbls styles */
+.flex-container-index {
+  width: 75%;
+
+}
+
 .flex-container {
   display: flex;
   justify-content: space-around;

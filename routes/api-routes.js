@@ -7,7 +7,28 @@ require("dotenv").config()
 
 //GET requests to display various handlebars files
 router.get("/", function(req, res) {
-    res.render("index");
+    db.ServiceMember.findAll({
+        where: {
+            approved: true
+        }
+    })
+    .then((dbServiceMember) => {
+        let arr = []
+        for (let i = 0; i < dbServiceMember.length; i++) {
+            arr.push(dbServiceMember[i])
+        }
+        console.log(dbServiceMember)
+        let randomServiceMember = arr[Math.floor(Math.random() * arr.length)]
+        console.log(randomServiceMember)
+        let obj = {
+            servicemembers: randomServiceMember
+        }
+        res.render("index", obj);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+    
 });
 
 router.get('/SEALs', (req, res) => {
