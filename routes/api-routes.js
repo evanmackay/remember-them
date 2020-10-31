@@ -4,7 +4,7 @@ const router = express.Router();
 const request = require("request");
 const cheerio = require("cheerio");
 const { format } = require("mysql");
-
+const fs = require ('fs')
 //GET requests to display various handlebars files
 router.get("/", function (req, res) {
     res.render("index");
@@ -21,11 +21,17 @@ router.get('/SEALs', (req, res) => {
         }
     })
         .then((dbServiceMember) => {
+            console.log("before", dbServiceMember)
             dbServiceMember = dbServiceMember.map(formatDbData)
+            console.log("after", dbServiceMember)
+
             function formatSiteData(data) {
                 var fallenSeal = {}
-
-                fallenSeal.img = data.find('.image-container').attr('data-src-img')
+                fs.readFile(img, function (er,buf){
+                    Buffer.isBuffer(buf);
+                    console.log(Buffer.from(buf))  
+                    fallenSeal.img = data.find('.image-container').attr('data-src-img')
+                })
                 fallenSeal.first_name = data.find('h6').text();
                 fallenSeal.last_name = "-"
                 fallenSeal.age = "-"
@@ -39,40 +45,49 @@ router.get('/SEALs', (req, res) => {
                 // fallenSeal.biography = "-"
                 fallenSeal.summary_of_service = "-"
 
-                // console.log(fallenSeal)
+                console.log(fallenSeal)
                 return fallenSeal
             }
+
+
+
+
+
+
+
             function formatDbData(data) {
-                
-                const formatedDbData = data => {
-                    const entries = Object.entries(data);
-                    entries.forEach(entry => entry[0] = +entry[0]);
-                    return entries;
-                }              
-                // console.log("the big D", data)
-                console.log(formatedDbData(data));
+                // return data.dataValues
+
+                // const formatedDbData = data
+                // const entries = Object.key(data).map(key => {
+
+                //     return entries;
+                // });
+
+            }
+       
 
             //    console.log(data)
-               // format()
-                // var fallenSeal = {}
+            // format()
+            // var fallenSeal = {}
 
-                // fallenSeal.img = data.find('.image-container').attr('data-src-img')
-                // fallenSeal.first_name = data.find('h6').text();
-                // fallenSeal.last_name = "-"
-                // fallenSeal.age = "-"
-                // fallenSeal.branch_of_service = "Navy"
-                // fallenSeal.date_of_birth = "-"
-                // fallenSeal.unit = data.find('.fallen-hero-rank').text();
-                // fallenSeal.date_of_death = data.find('.fallen-hero-death').text();
-                // fallenSeal.awards = "-"
-                // // this was pod but has been switched to bio for fit format
-                // fallenSeal.biography = data.find('.fallen-hero-location').text();
-                // // fallenSeal.biography = "-"
-                // fallenSeal.summary_of_service = "-"
+            // fallenSeal.img = data.find('.image-container').attr('data-src-img')
+            // fallenSeal.first_name = data.find('h6').text();
+            // fallenSeal.last_name = "-"
+            // fallenSeal.age = "-"
+            // fallenSeal.branch_of_service = "Navy"
+            // fallenSeal.date_of_birth = "-"
+            // fallenSeal.unit = data.find('.fallen-hero-rank').text();
+            // fallenSeal.date_of_death = data.find('.fallen-hero-death').text();
+            // fallenSeal.awards = "-"
+            // // this was pod but has been switched to bio for fit format
+            // fallenSeal.biography = data.find('.fallen-hero-location').text();
+            // // fallenSeal.biography = "-"
+            // fallenSeal.summary_of_service = "-"
 
-                // // console.log(fallenSeal)
-                // return fallenSeal
-            }
+            // // console.log(fallenSeal)
+            // return fallenSeal
+
             request("https://www.navysealfoundation.org/our-fallen-heroes/", (error, response, html) => {
                 if (!error && response.statusCode == 200) {
                     const $ = cheerio.load(html);
