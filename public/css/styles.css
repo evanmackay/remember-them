@@ -203,26 +203,27 @@ blockquote {
 
   #name-field {
     background-color: transparent;
-    border: solid white 2px;
+    border: solid rgb(199, 197, 197) 2px;
     color: white;
   }
 
   #email-field {
     background-color: transparent;
-    border: solid white 2px;
+    border: solid rgb(199, 197, 197) 2px;
     color: white;
   }
 
   #message-field {
     background-color: transparent;
-    border: solid white 2px;
+    border: solid rgb(199, 197, 197) 2px;
     color: white;
   }
 
   #form-button {
     background-color: transparent;
-    border: solid white 2px;
+    border: solid rgb(199, 197, 197) 2px;
     font-family: 'Roboto', sans-serif;
+    color: rgb(199, 197, 197);
   }
 
   .contact-us-section .contact-us-section-right {
@@ -231,8 +232,7 @@ blockquote {
 
   .contact-us-section .contact-us-header {
     margin-bottom: 2rem;
-    color: rgb(63, 63, 218);
-    text-shadow: rgb(78, 81, 87) 2px 2px 5px;
+    color:#807a2b;
   }
 
   .contact-us-section .responsive-embed {
@@ -323,7 +323,7 @@ blockquote {
   ======================= */
 
   #about-title {
-    color: goldenrod;
+    color: #807a2b;
     font-family: 'Roboto', sans-serif;
     padding-bottom: 10px;
   }
@@ -336,7 +336,7 @@ blockquote {
   }
 
   #bq-about {
-    color: white;
+    color: rgb(173, 172, 172);
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
     text-align: justify;
