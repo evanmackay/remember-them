@@ -686,7 +686,10 @@ body {
 }
 
 
-
+.swiper-wrapper {
+  justify-content: center;
+  align-items: center;
+}
 /* swiper */
 .swiper-container {
   background: black;
@@ -699,6 +702,7 @@ body {
   width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
+
 }
 
 .swiper-slide {
@@ -709,6 +713,11 @@ body {
 }
 
 /* Admin.hbls styles */
+.flex-container-index {
+  width: 75%;
+
+}
+
 .flex-container {
   display: flex;
   justify-content: space-around;
