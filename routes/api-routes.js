@@ -1,6 +1,8 @@
 const db = require("../models");
 const express = require("express");
 const router = express.Router();
+const nodemailer = require("nodemailer")
+require("dotenv").config()
 
 
 //GET requests to display various handlebars files
@@ -39,6 +41,10 @@ router.get('/api/servicemembers', (req, res) => {
 
 router.get('/about', (req, res) => {
     res.render('about');
+});
+
+router.get('/contact', (req, res) => {
+    res.render('contact');
 });
 
 router.get('/admin', (req, res) => {
@@ -81,6 +87,53 @@ router.post("/SEALs", function(req, res) {
         console.log(err);
     });
 });
+
+    router.post("/send", (req, res) => {
+        const output = `
+        <p>You have a new message.</p>
+        <h3>Message Details</h3>
+        <ul>
+            <li>Name: ${req.body.name}</li>
+            <li>Email Address: ${req.body.email}</li>
+        </ul>
+        <h3>Message</h3>
+        <p>${req.body.message}</p>
+        `;
+        let transporter = nodemailer.createTransport({
+        // create reusable transporter object using the default SMTP transport
+          service: 'gmail',
+          auth: {
+              user: process.env.EMAIL,
+              pass: process.env.PASSWORD
+          }
+        });
+      
+        // send mail with defined transport object
+        let mailOptions = {
+          from: 'rememberthembf@gmail.com', // sender address
+          to: ["alvinclemens@gmail.com", "evanmackay71@yahoo.com", "tjessee7624@gmail.com", "layne.d.hansen@gmail.com"],// list of receivers
+          subject: "Hello ✔", // Subject line
+          text: "New message", // plain text body
+          html: output, // html body
+        };
+      
+        
+        // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+      
+        transporter.sendMail(mailOptions, (error) => {
+            if (error) console.log(error);
+            console.log("Message sent")
+            
+            res.render("contact", {msg: 'Email has been sent!'})
+        })
+        
+            // Generate test SMTP service account from ethereal.email
+    });        
+          
+          
+          
+          
+   
 
 //Admin users can delete requested additions
 router.delete("/SEALs/:id", function(req, res) {
