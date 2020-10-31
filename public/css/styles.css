@@ -71,6 +71,7 @@ color: white;
 }
 
 #aside {
+    justify-content: flex;
     border: solid 1px #807a2b;
     color: white;
 }
@@ -79,6 +80,7 @@ color: white;
     color: white;
     list-style-type: none;
     justify-items: right;
+    margin-right: .5rem;
 }
 
 .footer-list {
@@ -86,8 +88,8 @@ color: white;
     display: inline-flex;
 }
 
-.list-item {
-    padding-right: .5rem;
+.li{
+    margin-right: .5rem;
 }
 
 /* CREED PAGE */
