@@ -6,6 +6,8 @@ const cheerio = require("cheerio");
 const { format } = require("mysql");
 const fs = require('fs')
 const axios = require('axios')
+// const Buffer = require('Buffer')
+
 //GET requests to display various handlebars files
 router.get("/", function (req, res) {
     res.render("index");
@@ -14,6 +16,7 @@ router.get("/", function (req, res) {
 router.get('/SEALs', (req, res) => {
     // we can now use result over calling dbServiceMember
     var result = []
+    // var formation = new result
 
     db.ServiceMember.findAll({
 
@@ -21,19 +24,21 @@ router.get('/SEALs', (req, res) => {
             approved: true
         }
     })
+
+
         .then((dbServiceMember) => {
-            console.log("before", dbServiceMember)
+            // console.log("before", dbServiceMember)
             dbServiceMember = dbServiceMember.map(formatDbData)
-            console.log("after", dbServiceMember)
+            // dbServiceMember = dbServiceMember.map(formatSiteData)
+            result = [...result, ...dbServiceMember]
+            // console.log("after", dbServiceMember)
 
             function formatSiteData(data, buf) {
                 var fallenSeal = {}
 
                 // var buf = fs.readFileSync(data.find('.image-container').attr('data-src-img'))
-                // Buffer.isBuffer(buf);
-                // console.log("this is the buf", buf)
-                fallenSeal.img = buf
 
+                fallenSeal.image = buf
                 fallenSeal.first_name = data.find('h6').text();
                 fallenSeal.last_name = "-"
                 fallenSeal.age = "-"
@@ -43,85 +48,58 @@ router.get('/SEALs', (req, res) => {
                 fallenSeal.date_of_death = data.find('.fallen-hero-death').text();
                 fallenSeal.awards = "-"
                 // this was pod but has been switched to bio for fit format
-                fallenSeal.biography = data.find('.fallen-hero-location').text();
+                // fallenSeal.biography = data.find('.fallen-hero-location').text();
                 // fallenSeal.biography = "-"
                 fallenSeal.summary_of_service = "-"
+                fallenSeal.approved = true
 
-                console.log(fallenSeal)
+                // console.log(fallenSeal)
                 return fallenSeal
             }
-
-
-
-
 
 
 
             function formatDbData(data) {
                 return data.dataValues
 
-                // const formatedDbData = data
-                // const entries = Object.key(data).map(key => {
-
-                //     return entries;
-                // });
-
             }
 
 
-            //    console.log(data)
-            // format()
-            // var fallenSeal = {}
-
-            // fallenSeal.img = data.find('.image-container').attr('data-src-img')
-            // fallenSeal.first_name = data.find('h6').text();
-            // fallenSeal.last_name = "-"
-            // fallenSeal.age = "-"
-            // fallenSeal.branch_of_service = "Navy"
-            // fallenSeal.date_of_birth = "-"
-            // fallenSeal.unit = data.find('.fallen-hero-rank').text();
-            // fallenSeal.date_of_death = data.find('.fallen-hero-death').text();
-            // fallenSeal.awards = "-"
-            // // this was pod but has been switched to bio for fit format
-            // fallenSeal.biography = data.find('.fallen-hero-location').text();
-            // // fallenSeal.biography = "-"
-            // fallenSeal.summary_of_service = "-"
-
-            // // console.log(fallenSeal)
-            // return fallenSeal
 
             request("https://www.navysealfoundation.org/our-fallen-heroes/", (error, response, html) => {
                 if (!error && response.statusCode == 200) {
                     const $ = cheerio.load(html);
                     // const fallenHeroContainer = $(".fallen-hero-item")
                     // var fallenHeroInd = $(".fallen-container").find("div")
-                    $(".fallen-hero-item").each(function (i, res) {
-                        // console.log(res)
+                    $(".fallen-hero-item").each(function () {
+                        // console.log("after")
 
                         // var fallenSeal = {}
 
 
                         axios.get(($(this).find('.image-container').attr('data-src-img')), { responseType: "arrayBuffer" })
                             .then(axiResponce => {
-                                const buf = Buffer.from(axiResponce.data, "utf-8")
-                                var format = formatSiteData($(this), buf)
-                                result.push(format)
-                                // console.log(buf)
+                               try { const buf = Buffer.from(axiResponce.data, "utf-8")
+                                console.log("hit buff")
 
+                                var format = formatSiteData($(this), buf)
+                                // swapped in dbServiceMemver, originaly result
+                                result.push(format)
+                            }
+                             catch(error){console.log("fjiewoq")}
+                                // console.log("this is the fromated data", format)
                             }
                             )
                             .catch(axiResponce => console.error(axiResponce))
-
-
-
-
-
-
-                    })
-                    console.log(result.slice(1, 3))
+                            
+                            // console.log("this is data", data)
+                        })
+                        // console.log("this is the results finished", result)
                     let obj = {
                         servicemembers: result
                     }
+                    // console.log("This is the ob being sent up to be rendered", obj)
+
                     res.render('SEALs', obj);
                 }
             });
@@ -178,6 +156,7 @@ router.post("/SEALs", function (req, res) {
     })
         .then(function (dbServiceMember) {
             res.json(dbServiceMember)
+
         })
         .catch((err) => {
             console.log(err);

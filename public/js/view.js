@@ -139,3 +139,4 @@ $('#delete').on('click', function(event) {
         console.log(err);
     });
 });
+
