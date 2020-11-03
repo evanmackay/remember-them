@@ -22,30 +22,35 @@
 
     <br>
 
-<h2>ABOUT OUR TEAM</h2>
-{{! Message to the user about our team }}
-<div class="container" id="about-text">
+    {{! Home page with navigation links to other areas of the website }}
     
-    <blockquote id="bq-about">
-    This website was conceived by four web development students fulfilling, three of whom are 
-    veterans (two Army and one Marine). The initial idea was to create a tribute page to fallen 
-    Navy SEALs; this idea has since extended to all of the service branches.
+    <div class="container">
+
+        <section class="contact-us-section" id="contact-form">
+            
+            <div class="columns contact-us-section-right">
 
 
-    The purpose of this site is to provide visitors a place to learn, research, and pay tribute
-    to those men and women who have sacrificed themselves for their country. We thank you for 
-    your interest in this site. We welcome your feedback on how to make this page better.
+                <h2 id="contact-us-header">Contact Us</h2>
 
-    </blockquote>
+                <form class="contact-us-form">
+                    <input type="text" placeholder="Full name" id="name-field">
+                    <input type="email" placeholder="Email" id="email-field">
+                    <textarea name="message" id="message-field" rows="12" placeholder="Type your message here"></textarea>
+                    <div class="contact-us-form-actions">
+                        <input type="submit" class="button" id="form-button" value="SUBMIT" />
+                    </div>
+                </form>
+                </div>
+            </div>
+        
+        </section>
 
-</div>
-    <div>
-        <p>Alvin Clemens Jr.</p>
-        <p>Evan Mackay, US Army</p>
-        <p>Jon Jesse, USMC</p>
-        <p>Layne D. Hansen, US Army</p>
+
     </div>
-<br>
+
+    <br>
+
     <footer>
 
         <div class="container" id="footer-bar">    
@@ -62,7 +67,8 @@
             </div>
 
         </div>
-            <blockquote id="quote">"To us, and those like us, damn few."</blockquote>
+        <blockquote id="quote">"To us, and those like us, damn few."</blockquote>
+    
     </footer>
-</div>
 
+</div>
