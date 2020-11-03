@@ -1,15 +1,6 @@
 const db = require("../models");
 const express = require("express");
 const router = express.Router();
-
-const request = require("request");
-const cheerio = require("cheerio");
-const { format } = require("mysql");
-const fs = require('fs')
-const axios = require('axios')
-//GET requests to display various handlebars files
-router.get("/", function (req, res) {
-    res.render("index");
 const nodemailer = require("nodemailer")
 require("dotenv").config()
 
@@ -41,123 +32,20 @@ router.get("/", function(req, res) {
 });
 
 router.get('/SEALs', (req, res) => {
-    // we can now use result over calling dbServiceMember
-    var result = []
-
     db.ServiceMember.findAll({
-
         where: {
             approved: true
         }
     })
-        .then((dbServiceMember) => {
-            console.log("before", dbServiceMember)
-            dbServiceMember = dbServiceMember.map(formatDbData)
-            console.log("after", dbServiceMember)
-
-            function formatSiteData(data, buf) {
-                var fallenSeal = {}
-
-                // var buf = fs.readFileSync(data.find('.image-container').attr('data-src-img'))
-                // Buffer.isBuffer(buf);
-                // console.log("this is the buf", buf)
-                fallenSeal.img = buf
-
-                fallenSeal.first_name = data.find('h6').text();
-                fallenSeal.last_name = "-"
-                fallenSeal.age = "-"
-                fallenSeal.branch_of_service = "Navy"
-                fallenSeal.date_of_birth = "-"
-                fallenSeal.unit = data.find('.fallen-hero-rank').text();
-                fallenSeal.date_of_death = data.find('.fallen-hero-death').text();
-                fallenSeal.awards = "-"
-                // this was pod but has been switched to bio for fit format
-                fallenSeal.biography = data.find('.fallen-hero-location').text();
-                // fallenSeal.biography = "-"
-                fallenSeal.summary_of_service = "-"
-
-                console.log(fallenSeal)
-                return fallenSeal
-            }
-
-
-
-
-
-
-
-            function formatDbData(data) {
-                return data.dataValues
-
-                // const formatedDbData = data
-                // const entries = Object.key(data).map(key => {
-
-                //     return entries;
-                // });
-
-            }
-
-
-            //    console.log(data)
-            // format()
-            // var fallenSeal = {}
-
-            // fallenSeal.img = data.find('.image-container').attr('data-src-img')
-            // fallenSeal.first_name = data.find('h6').text();
-            // fallenSeal.last_name = "-"
-            // fallenSeal.age = "-"
-            // fallenSeal.branch_of_service = "Navy"
-            // fallenSeal.date_of_birth = "-"
-            // fallenSeal.unit = data.find('.fallen-hero-rank').text();
-            // fallenSeal.date_of_death = data.find('.fallen-hero-death').text();
-            // fallenSeal.awards = "-"
-            // // this was pod but has been switched to bio for fit format
-            // fallenSeal.biography = data.find('.fallen-hero-location').text();
-            // // fallenSeal.biography = "-"
-            // fallenSeal.summary_of_service = "-"
-
-            // // console.log(fallenSeal)
-            // return fallenSeal
-
-            request("https://www.navysealfoundation.org/our-fallen-heroes/", (error, response, html) => {
-                if (!error && response.statusCode == 200) {
-                    const $ = cheerio.load(html);
-                    // const fallenHeroContainer = $(".fallen-hero-item")
-                    // var fallenHeroInd = $(".fallen-container").find("div")
-                    $(".fallen-hero-item").each(function (i, res) {
-                        // console.log(res)
-
-                        // var fallenSeal = {}
-
-
-                        axios.get(($(this).find('.image-container').attr('data-src-img')), { responseType: "arrayBuffer" })
-                            .then(axiResponce => {
-                                const buf = Buffer.from(axiResponce.data, "utf-8")
-                                var format = formatSiteData($(this), buf)
-                                result.push(format)
-                                // console.log(buf)
-
-                            }
-                            )
-                            .catch(axiResponce => console.error(axiResponce))
-
-
-
-
-
-
-                    })
-                    console.log(result.slice(1, 3))
-                    let obj = {
-                        servicemembers: result
-                    }
-                    res.render('SEALs', obj);
-                }
-            });
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+    .then((dbServiceMember) => {
+        let obj = {
+            servicemembers: dbServiceMember
+        }
+        res.render('SEALs', obj);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
 });
 
 router.get('/links', (req, res) => {
@@ -186,19 +74,19 @@ router.get('/admin', (req, res) => {
             approved: false
         }
     })
-        .then((dbServiceMember) => {
-            let obj = {
-                servicemembers: dbServiceMember
-            }
-            res.render('admin', obj);
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+    .then((dbServiceMember) => {
+        let obj = {
+            servicemembers: dbServiceMember
+        }
+        res.render('admin', obj);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
 });
 
 //Post a new members info to the database
-router.post("/SEALs", function (req, res) {
+router.post("/SEALs", function(req, res) {
     db.ServiceMember.create({
         image: req.body.image,
         first_name: req.body.first_name,
@@ -213,12 +101,12 @@ router.post("/SEALs", function (req, res) {
         summary_of_service: req.body.summary_of_service
 
     })
-        .then(function (dbServiceMember) {
-            res.json(dbServiceMember)
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+    .then(function(dbServiceMember) {
+        res.json(dbServiceMember)
+    })
+    .catch((err) => {
+        console.log(err);
+    });
 });
 
     router.post("/send", (req, res) => {
@@ -269,18 +157,18 @@ router.post("/SEALs", function (req, res) {
    
 
 //Admin users can delete requested additions
-router.delete("/SEALs/:id", function (req, res) {
+router.delete("/SEALs/:id", function(req, res) {
     db.ServiceMember.destroy({
         where: {
             id: req.params.id
         }
     })
-        .then((dbServiceMember) => {
-            res.json(dbServiceMember)
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+    .then((dbServiceMember) => {
+        res.json(dbServiceMember)
+    })
+    .catch((err) => {
+        console.log(err);
+    });
 });
 
 //Admin users can update status to approved for pending additions
@@ -292,14 +180,15 @@ router.put("/SEALs/:id", (req, res) => {
             id: req.params.id
         }
     })
-        .then((dbServiceMember) => {
-            res.json(dbServiceMember);
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+    .then((dbServiceMember) => {
+        res.json(dbServiceMember);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
 });
 
 
 
 module.exports = router
+
