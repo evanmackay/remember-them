@@ -38,13 +38,15 @@ request("https://www.navysealfoundation.org/our-fallen-heroes/", (error, respons
         $(".fallen-hero-item").each(function (i, res) {
             // console.log(res)
 
-            var fallenSeal = {}
+            var fallenSeal = [{}]
 
             fallenSeal.name = $(this).find('h6').text();
             fallenSeal.rank = $(this).find('.fallen-hero-rank').text();
             fallenSeal.dod = $(this).find('.fallen-hero-death').text();
             fallenSeal.pod = $(this).find('.fallen-hero-location').text();
             fallenSeal.img = $(this).find('image-container').attr();
+            fallenSeal.img = $(this).find('.image-container').attr('data-src-img')
+            
             // console.log(fallenSeal)
 
         })
