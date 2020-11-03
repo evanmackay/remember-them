@@ -1,139 +1,139 @@
 <div class="wrapper">
 
-    <div class="container">
-        <header class="subnav-hero-section">
-            <h1 class="title">Remember Them<img src="/css/logo.png" alt="Navy SEAL Trident" height="50" width="101">
-            </h1>
-        </header>
-    </div>
+  <div class="container">
+    <header class="subnav-hero-section">
+      <h1 class="title">Remember Them<img src="/css/logo.png" alt="Navy SEAL Trident" height="50" width="101">
+      </h1>
+    </header>
+  </div>
 
-  <div class="container" id="menu-bar">    
-        <div>
-            <ul class="menu menu-hover-lines">
-                <li><a href="/">Home</a></li>
-                <li><a href="/SEALs">Fallen Service Members</a></li>
-                <li><a href="/creed">Creeds</a></li>
-                {{!-- <li><a href="/links">Links</a></li> --}}
-                {{!-- <li><a href="/about">About Us</a></li>
+  <div class="container" id="menu-bar">
+    <div>
+      <ul class="menu menu-hover-lines">
+        <li><a href="/">Home</a></li>
+        <li><a href="/SEALs">Fallen Service Members</a></li>
+        <li><a href="/creed">Creeds</a></li>
+        {{!-- <li><a href="/links">Links</a></li> --}}
+        {{!-- <li><a href="/about">About Us</a></li>
                 <li><a href="/contact">Contact Us</a></li> --}}
-            </ul>
+      </ul>
 
-        </div>
-    </div>
-
-    <br>  
-
-  <h1 id="add-hero-title">Add a Hero to our Site</h1>
-
-{{! Form for submitting a new SEAL with all of the fields sepcified in models }}
-<form class="create-form" action="upload.php" method="post" enctype="multipart/form-data">
-  <div class="grid-container">
-    <div class="grid-y grid-padding-y">
-      
-      <!-- Image upload -->
-      <div class="medium-6 cell">
-        Enter the URL of the image of the Service Member
-        <input type="text" name="fileToUpload" id="fileToUpload">
-      </div>
-      
-      <!-- First Name -->
-      <div class="grid-x grid-padding-x">
-        <div class="cell small-6">
-          <label>First Name
-            <input type="text" placeholder="First" id="first">
-          </label>
-        </div>
-        {{!-- Last Name --}}
-        <div class="cell small-6">
-          <label>Last Name
-            <input type="text" placeholder="Last" id="last">
-          </label>
-        </div>
-      </div>
-      
-      <!-- Age -->
-      <div class="grid-x grid-padding-x">
-        <div class="cell small-6">
-          <label>
-            Which branch of service?
-            <select name="branch" id="branch">
-              <option value="Army">Army</option>
-              <option value="Marine Corps">Marine Corps</option>
-              <option value="Navy">Navy</option>
-              <option value="Air Force">Air Force</option>
-              <option value="Coast Guard">Coast Guard</option>
-            </select>
-        </div>
-        <div class="cell small-6">
-          <label>
-            How old is this individual?
-            <input type="number" min="17" max="120" id="age" placeholder="Age">
-          </label>
-        </div>
-      </div>  
-      
-      <!-- DOB -->
-      <div class="grid-x grid-padding-x">
-        <div class="cell small-6">
-          <label>Date of birth
-            <input type="date" id="dob">
-          </label>
-        </div>
-      
-      {{!-- DOD --}}
-        <div class="cell small-6">
-          <label>Date of death
-            <input type="date" id="dod">
-          </label>
-        </div>
-      </div>
-      
-      <!-- Unit -->
-      <div class="medium-6 cell">
-        <label>Unit
-          <input type="text" placeholder="Unit" id="unit">
-        </label>
-      </div>
-      
-      <!-- Awards -->
-      <div class="medium-6 cell">
-        <label>Awards
-          <input type="text" placeholder="Awards" id="awards">
-        </label>
-      </div>
-      
-      <!-- Summary of Service -->
-      <div class="medium-6 cell">
-        <label>Summary of service
-          <input type="text" placeholder="SoS" id="sos">
-        </label>
-      </div>
     </div>
   </div>
 
-  <button type="submit" value="Upload Image" name="submit" class="button success" id="add-hero-submit">Submit</button>
-</form>
+  <br>
 
-<div><span id="error"></span></div>
+  <h1 id="add-hero-title">Add a Hero to our Site</h1>
+
+  {{! Form for submitting a new SEAL with all of the fields sepcified in models }}
+  <form class="create-form" action="upload.php" method="post" enctype="multipart/form-data">
+    <div class="grid-container">
+      <div class="grid-y grid-padding-y">
+
+        <!-- Image upload -->
+        <div class="medium-6 cell">
+          Enter the URL of the image of the Service Member
+          <input type="text" name="fileToUpload" id="fileToUpload">
+        </div>
+
+        <!-- First Name -->
+        <div class="grid-x grid-padding-x">
+          <div class="cell small-6">
+            <label>First Name
+              <input type="text" placeholder="First" id="first">
+            </label>
+          </div>
+          {{!-- Last Name --}}
+          <div class="cell small-6">
+            <label>Last Name
+              <input type="text" placeholder="Last" id="last">
+            </label>
+          </div>
+        </div>
+
+        <!-- Age -->
+        <div class="grid-x grid-padding-x">
+          <div class="cell small-6">
+            <label>
+              Which branch of service?
+              <select name="branch" id="branch">
+                <option value="Army">Army</option>
+                <option value="Marine Corps">Marine Corps</option>
+                <option value="Navy">Navy</option>
+                <option value="Air Force">Air Force</option>
+                <option value="Coast Guard">Coast Guard</option>
+              </select>
+          </div>
+          <div class="cell small-6">
+            <label>
+              How old is this individual?
+              <input type="number" min="17" max="120" id="age" placeholder="Age">
+            </label>
+          </div>
+        </div>
+
+        <!-- DOB -->
+        <div class="grid-x grid-padding-x">
+          <div class="cell small-6">
+            <label>Date of birth
+              <input type="date" id="dob">
+            </label>
+          </div>
+
+          {{!-- DOD --}}
+          <div class="cell small-6">
+            <label>Date of death
+              <input type="date" id="dod">
+            </label>
+          </div>
+        </div>
+
+        <!-- Unit -->
+        <div class="medium-6 cell">
+          <label>Unit
+            <input type="text" placeholder="Unit" id="unit">
+          </label>
+        </div>
+
+        <!-- Awards -->
+        <div class="medium-6 cell">
+          <label>Awards
+            <input type="text" placeholder="Awards" id="awards">
+          </label>
+        </div>
+
+        <!-- Summary of Service -->
+        <div class="medium-6 cell">
+          <label>Summary of service
+            <textarea name="message" id="addnew-message-field" rows="6" placeholder="Type your message here"></textarea>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" value="Upload Image" name="submit" class="button success" id="add-hero-submit">Submit</button>
+  </form>
+
+  <div><span id="error"></span></div>
 
 
-    <footer>
+  <footer>
 
-        <div class="container" id="footer-bar">    
-            <div>
-                <ul class="menu menu-hover-lines">
-                    {{!-- <li><a href="/">Home</a></li>
+    <div class="container" id="footer-bar">
+      <div>
+        <ul class="menu menu-hover-lines">
+          {{!-- <li><a href="/">Home</a></li>
                     <li><a href="/SEALs">Fallen Service Members</a></li>
                     <li><a href="/creed">Creeds</a></li> --}}
-                    <li><a href="/links">Links</a></li>
-                    <li><a href="/about">About Us</a></li>
-                    <li><a href="/contact">Contact Us</a></li>
-                </ul>
+          <li><a href="/links">Links</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
 
-            </div>
+      </div>
 
-        </div>
-            <blockquote id="quote">"To us, and those like us, damn few."</blockquote>
-    </footer>
+    </div>
+    <blockquote id="quote">"To us, and those like us, damn few."</blockquote>
+  </footer>
 
 </div>
