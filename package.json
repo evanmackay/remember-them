@@ -22,6 +22,7 @@
     "cheerio": "^1.0.0-rc.3",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
+    "fast-csv": "^4.3.3",
     "init": "^0.1.2",
     "mysql": "^2.18.1",
     "mysql2": "^1.7.0",

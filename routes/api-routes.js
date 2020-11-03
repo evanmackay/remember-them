@@ -1,114 +1,31 @@
 const db = require("../models");
 const express = require("express");
 const router = express.Router();
-const request = require("request");
-const cheerio = require("cheerio");
+
 const { format } = require("mysql");
 const fs = require('fs')
-const axios = require('axios')
-// const Buffer = require('Buffer')
+
 
 //GET requests to display various handlebars files
-router.get("/", function (req, res) {
+router.get("/", function(req, res) {
     res.render("index");
 });
-
 router.get('/SEALs', (req, res) => {
-    // we can now use result over calling dbServiceMember
-    var result = []
-    // var formation = new result
-
     db.ServiceMember.findAll({
-
         where: {
             approved: true
         }
     })
-
-
-        .then((dbServiceMember) => {
-            // console.log("before", dbServiceMember)
-            dbServiceMember = dbServiceMember.map(formatDbData)
-            // dbServiceMember = dbServiceMember.map(formatSiteData)
-            result = [...result, ...dbServiceMember]
-            // console.log("after", dbServiceMember)
-
-            function formatSiteData(data, buf) {
-                var fallenSeal = {}
-
-                // var buf = fs.readFileSync(data.find('.image-container').attr('data-src-img'))
-
-                fallenSeal.image = buf
-                fallenSeal.first_name = data.find('h6').text();
-                fallenSeal.last_name = "-"
-                fallenSeal.age = "-"
-                fallenSeal.branch_of_service = "Navy"
-                fallenSeal.date_of_birth = "-"
-                fallenSeal.unit = data.find('.fallen-hero-rank').text();
-                fallenSeal.date_of_death = data.find('.fallen-hero-death').text();
-                fallenSeal.awards = "-"
-                // this was pod but has been switched to bio for fit format
-                // fallenSeal.biography = data.find('.fallen-hero-location').text();
-                // fallenSeal.biography = "-"
-                fallenSeal.summary_of_service = "-"
-                fallenSeal.approved = true
-
-                // console.log(fallenSeal)
-                return fallenSeal
-            }
-
-
-
-            function formatDbData(data) {
-                return data.dataValues
-
-            }
-
-
-
-            request("https://www.navysealfoundation.org/our-fallen-heroes/", (error, response, html) => {
-                if (!error && response.statusCode == 200) {
-                    const $ = cheerio.load(html);
-                    // const fallenHeroContainer = $(".fallen-hero-item")
-                    // var fallenHeroInd = $(".fallen-container").find("div")
-                    $(".fallen-hero-item").each(function () {
-                        // console.log("after")
-
-                        // var fallenSeal = {}
-
-
-                        axios.get(($(this).find('.image-container').attr('data-src-img')), { responseType: "arrayBuffer" })
-                            .then(axiResponce => {
-                               try { const buf = Buffer.from(axiResponce.data, "utf-8")
-                                console.log("hit buff")
-
-                                var format = formatSiteData($(this), buf)
-                                // swapped in dbServiceMemver, originaly result
-                                result.push(format)
-                            }
-                             catch(error){console.log("fjiewoq")}
-                                // console.log("this is the fromated data", format)
-                            }
-                            )
-                            .catch(axiResponce => console.error(axiResponce))
-                            
-                            // console.log("this is data", data)
-                        })
-                        // console.log("this is the results finished", result)
-                    let obj = {
-                        servicemembers: result
-                    }
-                    // console.log("This is the ob being sent up to be rendered", obj)
-
-                    res.render('SEALs', obj);
-                }
-            });
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-});
-
+    .then((dbServiceMember) => {
+        let obj = {
+            servicemembers: dbServiceMember
+        }
+        res.render('SEALs', obj);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+}); 
 router.get('/creed', (req, res) => {
     res.render('creed');
 });
