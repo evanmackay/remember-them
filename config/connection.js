@@ -1,32 +1,34 @@
-//Import MySQL and dotenv modules
+// Import mysql module
 const mysql = require("mysql");
+
+// Import dotenv module
 require("dotenv").config();
 
-let connection;
+var connection;
 
 if (process.env.JAWSDB_URL) {
-    //Use jaws db
+    // use jaws db
     connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
-    //Use local connection
-    //Create connection to local MySQL database
+    // use local connection
+    // Create connection to local MySQL database
         connection = mysql.createConnection({
         host: "localhost",
         port: 3306,
         user: "root",
         password: "Toskiornottoski500!",
-        database: "seals_db"
+        database: "servicemembers"
     });
 }
 
 
-// Run connection to the servicemembers DB
+// Run connection to 'burgers_db'
 connection.connect((err) => {
     if (err) {
-        console.error("Error connecting: " + err.stack);
+        console.error("error connecting: " + err.stack);
         return;
     }
-    console.log("Connected as id: " + connection.threadId);
-});
+    console.log("connected as id: " + connection.threadId);
+})
 
 module.exports = connection;
