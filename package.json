@@ -10,8 +10,7 @@
     "test": "",
     "lint": "eslint \"**/*.js\"",
     "start": "node server.js",
-    "watch": "nodemon server.js",
-    "migrate": "node utils/migration.js"
+    "watch": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
