@@ -1,7 +1,8 @@
 const express = require("express")
 const app = express();
 const PORT = process.env.PORT || 8080;
-const apiRoutes = require("./routes/api-routes.js")
+const path = require("path")
+const apiRoutes = require(path.join(__dirname, "./routes/api-routes"))
 const db = require("./models");
 const exphbs = require('express-handlebars');
 

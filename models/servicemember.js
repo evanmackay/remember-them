@@ -1,5 +1,3 @@
-
-
 module.exports = function(sequelize, DataTypes) {
     
     var ServiceMember = sequelize.define("ServiceMember", {
