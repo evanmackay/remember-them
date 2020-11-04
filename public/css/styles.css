@@ -200,9 +200,6 @@ color: rgb(218, 218, 216);
 border-radius: 5px;
 }
 
-
-
-
 .subnav-hero-section {
 text-align: center;
 background: black;
@@ -728,17 +725,7 @@ font-size: 18px;
 font-family: 'Cinzel', serif;
 }
 
-
-
-
-
-
-
-
-
-
 #photo {
-
   -webkit-animation: fadein 3.5s; /* Safari, Chrome and Opera > 13.5.1 */
      -moz-animation: fadein 3.5s; /* Firefox < 16 */
       -ms-animation: fadein 3.5s; /* Internet Explorer */
@@ -826,31 +813,31 @@ margin: 0;
 }
 
 @media screen and (min-width: 320px) and (max-width: 425px) {
-.card {
-  flex: 0 0 100%;
-}
+  .card {
+    flex: 0 0 100%;
+  }
 }
 
 @media screen and (min-width: 426px) and (max-width: 768px) {
-.card {
-  flex: 0 0 45%;
-}
+  .card {
+    flex: 0 0 45%;
+  }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-.card {
-  flex: 0 0 30%;
-}
+  .card {
+    flex: 0 0 30%;
+  }
 }
 
 @media screen and (min-width: 1025px) and (max-width: 1440px) {
-.card {
-  flex: 0 0 25%;
-}
+  .card {
+    flex: 0 0 25%;
+  }
 }
 
 @media screen and (min-width: 1441px) {
-.card {
-  flex: 0 0 25%;
-}
+  .card {
+    flex: 0 0 25%;
+  }
 }
