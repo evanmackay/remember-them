@@ -2,9 +2,10 @@
 
 ## Table of Contents
 * [Description](#Description)
+* [Screenshot](#Screenshot)
 * [Langauges](#Languages)
 * [Technologies](#Technologies)
-* [Deployed-Site](#Deployed Site Link)
+* [Deployed_Site](#Deployed_Site_Link)
 * [Contributing](#Contributing)
 * [Credits](#Credits)
 
@@ -14,6 +15,9 @@ a site that would serve as a memorial for all of those who came before us and wh
 ultimate sacrifice for their country. The main page of the site contains a brief snippet about
 each fallen service member along with their photo. We have also included a page for the creeds
 of each branch and another with links to other various resources related to the military.
+
+## Screenshot
+![remember-them](https://user-images.githubusercontent.com/66571617/98058117-2f29c800-1e01-11eb-8c9e-31b753690e4c.PNG)
 
 ## Languages
 1. HTML
