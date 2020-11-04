@@ -1,5 +1,4 @@
-
-var swiper = new Swiper('.swiper-container', {
+let swiper = new Swiper('.swiper-container', {
     effect: 'coverflow',
     grabCursor: true,
     centeredSlides: true,
@@ -14,19 +13,15 @@ var swiper = new Swiper('.swiper-container', {
     pagination: {
       el: '.swiper-pagination',
     },
-  });
+});
 
 
-
-//Input validation function declarations
+//Input validation function declaration
 function isEmpty(val) {
     if(!val) {
         return true;
     }
 };
-
-  
-
 
 
 //Enter a new member
@@ -46,7 +41,7 @@ $('.create-form').on('submit', (event) => {
     let dod = $('#dod').val().trim();
     let convertedDate;
     
-
+    //Convert date to more user friendly format
     function dateConversion(date) {
         const d = new Date(date);
         const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
@@ -54,15 +49,11 @@ $('.create-form').on('submit', (event) => {
         const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
         convertedDate = `${da}-${mo}-${ye}`
         return convertedDate
-        // console.log(convertedDate);
-
     }
-
-    console.log(img)
 
     arr.push(first, last, branch, unit, awards, sos, dob, dod);
 
-    //Validate all fields in the form
+    //Confirm that no fields were left empty
     for(i = 0; i < arr.length; i++) {
         if(isEmpty(arr[i])) {
             err = true;
@@ -72,7 +63,7 @@ $('.create-form').on('submit', (event) => {
         }
     };
 
-    //If there are no errors, data is posted
+    //If there are no errors, data is posted to the admin page for approval
     if(!err) {
         const newMember = {
             image: img,
@@ -92,8 +83,6 @@ $('.create-form').on('submit', (event) => {
             data: newMember
         })
         .then(() => {
-            console.log('Member added');
-            // console.log(newMember.date_of_birth)
             location.reload();
         })
         .catch((err) => {
@@ -102,9 +91,9 @@ $('.create-form').on('submit', (event) => {
     }
 });
 
+
 //Approve a new submission
 $('#approve').on('click', function(event) {
-    console.log('UPDATE triggered');
     let id = $(this).data('id');
 
     let status = {
@@ -116,27 +105,25 @@ $('#approve').on('click', function(event) {
         data: status
     })
     .then(() => {
-        console.log('Entry approved!');
         location.reload();
     })
     .catch((err) => {
-        console.log(err);
+        throw err;
     });
 });
 
+
 //Delete a new submission
 $('#delete').on('click', function(event) {
-    console.log('DELETE triggered');
     let id = $(this).data('id');
 
     $.ajax('/SEALs/' + id, {
         method: 'DELETE'
     })
     .then(() => {
-        console.log('Entry has been deleted');
         location.reload();
     })
     .catch((err) => {
-        console.log(err);
+        throw err;
     });
 });
