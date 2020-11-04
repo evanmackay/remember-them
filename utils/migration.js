@@ -20,35 +20,15 @@ db.sequelize.sync().then(async function () {
             image: current[5],
             first_name: current[1],
             last_name: " ",
-            age: 0,
+            age: 2378255,
             branch_of_service: "Navy",
             unit: current[2],
             date_of_death: current[4] || " ",
-            awards: "NaN",
-            summary_of_service: "NaN",
+            awards: "None listed",
+            summary_of_service: "Not avalable",
             approved: true,
         }
         await db.ServiceMember.create(data)
     }
-    // db.ServiceMember.create({
-    //     image: "https://www.navysealfoundation.org/wp-content/uploads/2011/08/John-Douangdara.jpg",
-    //     first_name: "name",
-    //     last_name: "smith",
-    //     age: 33,
-    //     branch_of_service: "navy",
-    //     unit: "seals",
-    //     date_of_death: "12/12/2012",
-    //     awards: "wefuihwef",
-    //     summary_of_service: "iuhefwuihwef",
-    //     approved: true
-    // })
-        // .then(function (dbServiceMember) {
-        //     console.log(dbServiceMember)
-
-
-        // })
-        // .catch((err) => {
-        //     console.log(err);
-        // });
-
+   
 });
