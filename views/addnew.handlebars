@@ -1,5 +1,6 @@
 <div class="wrapper">
 
+  <!-- Header and logo -->
   <div class="container">
     <header class="subnav-hero-section">
       <h1 class="title">Remember Them<img src="/css/logo.png" alt="Navy SEAL Trident" height="50" width="101">
@@ -7,7 +8,8 @@
     </header>
   </div>
 
-  <div class="container" id="menu-bar">
+  <!-- Navbar -->
+  <nav class="container" id="menu-bar">
     <div id="menu-items">
       <ul class="menu menu-hover-lines">
         <li><a href="/">Home</a></li>
@@ -15,13 +17,13 @@
         <li><a href="/creed">Creeds</a></li>
       </ul>
     </div>
-  </div>
+  </nav>
 
   <br>
 
-  <h1 id="add-hero-title">Add a Hero to our Site</h1>
+  <h2 id="add-hero-title">Add a Hero to our Site</h2>
 
-  {{! Form for submitting a new SEAL with all of the fields sepcified in models }}
+  {{! Form for submitting a new service member with all of the fields sepcified in models }}
   <form class="create-form" action="upload.php" method="post" enctype="multipart/form-data">
     <div class="grid-container">
       <div class="grid-y grid-padding-y">
@@ -110,19 +112,21 @@
     <button type="submit" value="Upload Image" name="submit" class="button success" id="add-hero-submit">Submit</button>
   </form>
 
+  <!-- Error message display -->
   <div><span id="error"></span></div>
 
-
+  <!-- Footer with links to other pages -->
   <footer>
     <div class="container" id="footer-bar">
-      <div>
+      <nav>
         <ul class="menu menu-hover-lines">
           <li><a href="/links">Links</a></li>
           <li><a href="/about">About Us</a></li>
           <li><a href="/contact">Contact Us</a></li>
         </ul>
-      </div>
+      </nav>
     </div>
+    
     <blockquote id="quote">"To us, and those like us, damn few."</blockquote>
   </footer>
 </div>
