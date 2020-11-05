@@ -3,15 +3,15 @@
 ## Table of Contents
 * [Description](#Description)
 * [Screenshot](#Screenshot)
-* [Langauges](#Languages)
+* [Languages](#Languages)
 * [Technologies](#Technologies)
-* [Deployed_Site](#Deployed_Site_Link)
+* [Deployed Site](#Deployed_Site_Link)
 * [Contributing](#Contributing)
 * [Credits](#Credits)
 
 ## Description
 With 3 of our team members having served in the United States armed forces, we wanted to construct
-a site that would serve as a memorial for all of those who came before us and who made the 
+a site that would serve as a memorial for all of those men and women who came before us who made the 
 ultimate sacrifice for their country. The main page of the site contains a brief snippet about
 each fallen service member along with their photo. We have also included a page for the creeds
 of each branch and another with links to other various resources related to the military.

@@ -1,7 +1,5 @@
-// Import mysql module
+// Import mysql and dotenv modules
 const mysql = require("mysql");
-
-// Import dotenv module
 require("dotenv").config();
 
 var connection;
@@ -22,7 +20,7 @@ if (process.env.JAWSDB_URL) {
 }
 
 
-// Run connection to 'burgers_db'
+// Run connection to database
 connection.connect((err) => {
     if (err) {
         console.error("error connecting: " + err.stack);
