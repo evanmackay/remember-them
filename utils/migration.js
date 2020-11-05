@@ -3,7 +3,7 @@ const fs = require("fs")
 
 
 db.sequelize.sync().then(async function () {
-    var sealStingData = fs.readFileSync(__dirname + "\\seals_db.csv").toString().split("\n")
+    var sealStingData = fs.readFileSync(__dirname + "//seals_db.csv").toString().split("\n")
 
     // console.log(sealStingData)
 
@@ -25,7 +25,7 @@ db.sequelize.sync().then(async function () {
             unit: current[2],
             date_of_death: current[4] || " ",
             awards: "None listed",
-            summary_of_service: "Not avalable",
+            summary_of_service: "Not available",
             approved: true,
         }
         await db.ServiceMember.create(data)
