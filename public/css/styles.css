@@ -22,6 +22,7 @@ align-items: center;
 .title {
   color: white;
   font-family: 'Cinzel', serif;
+  font-size: 3.25em;
 }
 
 .title a {
