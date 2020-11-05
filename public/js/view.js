@@ -128,3 +128,26 @@ $('#delete').on('click', function(event) {
     });
 });
 
+
+//Submitting a new forum post
+$('#contact-us-form').on('submit', (event) => {
+    event.preventDefault();
+
+    let name = $('#name-field').val().trim();
+    let message = $('#message-field').val().trim();
+    const newPost = {
+        post: message,
+        poster_name: name
+    }
+
+    $.ajax('/share', {
+        method: 'POST',
+        data: newPost
+    })
+    .then(() => {
+        location.reload();
+    })
+    .catch((err) => {
+        throw err;
+    });
+});
