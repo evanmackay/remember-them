@@ -16,7 +16,7 @@ let swiper = new Swiper('.swiper-container', {
 });
 
 
-//Input validation function declaration
+//Add new member input validation function declaration
 function isEmpty(val) {
     if(!val) {
         return true;
@@ -47,9 +47,9 @@ $('.create-form').on('submit', (event) => {
         const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
         const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d);
         const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
-        convertedDate = `${da}-${mo}-${ye}`
-        return convertedDate
-    }
+        convertedDate = `${da}-${mo}-${ye}`;
+        return convertedDate;
+    };
 
     arr.push(first, last, branch, unit, awards, sos, dob, dod);
 
@@ -86,16 +86,15 @@ $('.create-form').on('submit', (event) => {
             location.reload();
         })
         .catch((err) => {
-            throw err;
+            console.log(err);
         });
     }
 });
 
 
-//Approve a new submission
+//Admin users can approve a new submission
 $('#approve').on('click', function(event) {
     let id = $(this).data('id');
-
     let status = {
         approved: true
     };
@@ -108,7 +107,7 @@ $('#approve').on('click', function(event) {
         location.reload();
     })
     .catch((err) => {
-        throw err;
+        console.log(err);
     });
 });
 
@@ -124,14 +123,16 @@ $('#delete').on('click', function(event) {
         location.reload();
     })
     .catch((err) => {
-        throw err;
+        console.log(err);
     });
 });
 
+
+//On click the form to submit a post is made visible
 $('#story-button').click(() => {
     $('.forum-form').attr("class", "forum-form");
-    $('#story-button').attr("class", "button hide")
-})
+    $('#story-button').attr("class", "button hide");
+});
 
 
 //Submitting a new forum post
@@ -140,12 +141,10 @@ $('.forum-form').on('submit', (event) => {
 
     let name = $('#name-field').val();
     let message = $('#message-field').val().trim();
-    console.log(name)
     const newPost = {
         post: message,
         poster_name: name
-    }
-    console.log(newPost.poster_name)
+    };
 
     $.ajax('/share', {
         method: 'POST',
@@ -155,6 +154,6 @@ $('.forum-form').on('submit', (event) => {
         location.reload();
     })
     .catch((err) => {
-        throw err;
+        console.log(err);
     });
 });
