@@ -28,6 +28,16 @@ router.get("/", function(req, res) {
     });
 });
 
+router.get('/share', (req, res) => {
+    db.ForumPost.findAll({})
+    .then((dbForumPost) => {
+        let obj = {
+            post: dbForumPost
+        }
+        res.render('share', obj)
+    })
+})
+
 
 router.get('/SEALs', (req, res) => {
     db.ServiceMember.findAll({
@@ -91,6 +101,16 @@ router.get('/admin', (req, res) => {
 
 
 //Post a new members info to the database
+router.post("/share", function(req, res) {
+    db.ForumPost.create({
+        post: req.body.post,
+        name: req.body.poster_name
+    })
+    .then((dbForumPost) => {
+        res.json(dbForumPost)
+    })
+})
+
 router.post("/SEALs", function(req, res) {
     db.ServiceMember.create({
         image: req.body.image,
