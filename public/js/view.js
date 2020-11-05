@@ -128,3 +128,33 @@ $('#delete').on('click', function(event) {
     });
 });
 
+$('#story-button').click(() => {
+    $('.forum-form').attr("class", "forum-form");
+    $('#story-button').attr("class", "button hide")
+})
+
+
+//Submitting a new forum post
+$('.forum-form').on('submit', (event) => {
+    event.preventDefault();
+
+    let name = $('#name-field').val();
+    let message = $('#message-field').val().trim();
+    console.log(name)
+    const newPost = {
+        post: message,
+        poster_name: name
+    }
+    console.log(newPost.poster_name)
+
+    $.ajax('/share', {
+        method: 'POST',
+        data: newPost
+    })
+    .then(() => {
+        location.reload();
+    })
+    .catch((err) => {
+        throw err;
+    });
+});
