@@ -2,7 +2,7 @@
 
     <h1>The Fallen</h1>
 
-    {{! View all of the SEALs that currently exist in the database }}
+    {{! View all of the service members that currently exist in the database }}
     <div class="flex-container">
         {{#each servicemembers}}
         <div class="card">
@@ -15,12 +15,10 @@
         {{/each}}
     </div>
     
-
-
+    <!-- Footer with links to other pages -->
     <footer>
-
         <div class="container" id="menu-bar">    
-            <div>
+            <nav>
                 <ul class="menu menu-hover-lines">
                     <li><a href="/">Home</a></li>
                     <li><a href="/SEALs">Fallen Service Members</a></li>
@@ -29,9 +27,9 @@
                     <li><a href="/creed">Creeds</a></li>
                     <li><a href="/about">Contact Us</a></li>
                 </ul>
-            </div>
+            </nav>
         </div>
 
-            <blockquote id="quote">"To us, and those like us, damn few."</blockquote>
+        <blockquote id="quote">"To us, and those like us, damn few."</blockquote>
     </footer>
 </div>
