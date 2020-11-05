@@ -16,20 +16,24 @@
         </div>
     </div>
 
+ 
+    <div class="columns contact-us-section-right">
+        <h2 id="contact-us-header">Share Your Story</h2>
+        <br>
     {{!-- div for posts --}}
     <div class="container">
         {{#each post}}
         <div class="card">
             <p>{{this.dataValues.post}}</p>
             <p>Posted by: {{this.dataValues.poster_name}}</p>
+            <p>Posted at: {{this.dataValues.createdAt}}</p>
         </div>
         {{/each}}
     </div>
- 
-    <div class="columns contact-us-section-right">
-        <h2 id="contact-us-header">Share Your Story</h2>
 
-        <form class="contact-us-form">
+    <button class="button" id="story-button">Add Your Story</button>
+
+        <form class="forum-form hide">
             <input type="text" placeholder="Full name" id="name-field">
             <textarea name="message" id="message-field" rows="12" placeholder="Type your post here"></textarea>
             <div class="contact-us-form-actions">

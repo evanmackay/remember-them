@@ -104,7 +104,7 @@ router.get('/admin', (req, res) => {
 router.post("/share", function(req, res) {
     db.ForumPost.create({
         post: req.body.post,
-        name: req.body.poster_name
+        poster_name: req.body.poster_name
     })
     .then((dbForumPost) => {
         res.json(dbForumPost)
