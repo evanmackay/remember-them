@@ -1,8 +1,8 @@
 const db = require("../models");
 const express = require("express");
 const router = express.Router();
-const nodemailer = require("nodemailer")
-require("dotenv").config()
+const nodemailer = require("nodemailer");
+require("dotenv").config();
 
 
 //GET requests to display various handlebars files
@@ -13,20 +13,21 @@ router.get("/", function(req, res) {
         }
     })
     .then((dbServiceMember) => {
-        let arr = []
+        let arr = [];
         for (let i = 0; i < dbServiceMember.length; i++) {
-            arr.push(dbServiceMember[i])
+            arr.push(dbServiceMember[i]);
         }
-        let randomServiceMember = arr[Math.floor(Math.random() * arr.length)]
+        let randomServiceMember = arr[Math.floor(Math.random() * arr.length)];
         let obj = {
             servicemembers: randomServiceMember
         }
         res.render("index", obj);
     })
     .catch((err) => {
-        throw err;
+        console.log(err);
     });
 });
+
 
 router.get('/share', (req, res) => {
     db.ForumPost.findAll({})
@@ -34,9 +35,12 @@ router.get('/share', (req, res) => {
         let obj = {
             post: dbForumPost
         }
-        res.render('share', obj)
+        res.render('share', obj);
     })
-})
+    .catch((err) => {
+        console.log(err);
+    });
+});
 
 
 router.get('/SEALs', (req, res) => {
@@ -52,7 +56,7 @@ router.get('/SEALs', (req, res) => {
         res.render('SEALs', obj);
     })
     .catch((err) => {
-        throw err;
+        console.log(err);
     });
 });
 
@@ -95,22 +99,27 @@ router.get('/admin', (req, res) => {
         res.render('admin', obj);
     })
     .catch((err) => {
-        throw err;
+        console.log(err);
     });
 });
 
 
-//Post a new members info to the database
+//Post content to the forum page
 router.post("/share", function(req, res) {
     db.ForumPost.create({
         post: req.body.post,
         poster_name: req.body.poster_name
     })
     .then((dbForumPost) => {
-        res.json(dbForumPost)
+        res.json(dbForumPost);
     })
-})
+    .catch((err) => {
+        console.log(err);
+    });
+});
 
+
+//Post a new service member to the database
 router.post("/SEALs", function(req, res) {
     db.ServiceMember.create({
         image: req.body.image,
@@ -126,14 +135,15 @@ router.post("/SEALs", function(req, res) {
         summary_of_service: req.body.summary_of_service
     })
     .then((dbServiceMember) => {
-        res.json(dbServiceMember)
+        res.json(dbServiceMember);
     })
     .catch((err) => {
-        throw err;
+        console.log(err);
     });
 });
 
 
+//Nodemailer functionality
 router.post("/send", (req, res) => {
     const output = `
     <p>You have a new message.</p>
@@ -183,12 +193,13 @@ router.delete("/SEALs/:id", function(req, res) {
         }
     })
     .then((dbServiceMember) => {
-        res.json(dbServiceMember)
+        res.json(dbServiceMember);
     })
     .catch((err) => {
-        throw err;
+        console.log(err);
     });
 });
+
 
 //Admin users can update status to approved for pending additions
 router.put("/SEALs/:id", (req, res) => {
@@ -203,11 +214,9 @@ router.put("/SEALs/:id", (req, res) => {
         res.json(dbServiceMember);
     })
     .catch((err) => {
-        throw err;
+        console.log(err);
     });
 });
 
 
-
 module.exports = router;
-
