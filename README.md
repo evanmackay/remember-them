@@ -43,6 +43,12 @@ expect a small wait time for the request to be processed. If you wish to contrib
 our code, feel free to contact us directly through the website and we can collaborate on
 making new additions or changes to the site.
 
+## Future Development
+In the future our team plans to correct the issues the site currently has with responsive design for easier use on any device. Additionally, 
+since the data scraped from the navy seal foundation site was not complete enough to fill out all of the data we include for each service member
+we would like to complete their records for a better user experience. One final adjustment is to make admin access for approving or denying
+new requests more secure through means of a login portal and inclusion of the passport module.
+
 ## Credits
 Special thanks to the Navy SEAL foundation, we utilized data pulled from their site to
 begin building our database of fallen service members. Visit them at https://www.navysealfoundation.org.
