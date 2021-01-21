@@ -155,7 +155,7 @@ router.post("/send", (req, res) => {
     <h3>Message</h3>
     <p>${req.body.message}</p>
     `;
-    let transporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransport({
     // create reusable transporter object using the default SMTP transport
         service: 'gmail',
         auth: {
